@@ -7,7 +7,17 @@ package kivaryhma;
 
 
 public class Main {
+    
     public static void main(String[] args) {
-        System.out.println("lel");
+        Model model = new Model();
+        View view = new View();
+        Form form = new Form();
+        Controller controller = new Controller(model, view);
+        
+        //Rekisteröidään kontrollerit ja käynnistetään näkymä
+        form.registerController(controller);
+        view.registerController(controller);
+        view.setForm(form);
+        view.init();
     }
 }
