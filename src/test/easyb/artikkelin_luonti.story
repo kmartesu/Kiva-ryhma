@@ -1,3 +1,5 @@
+import kivaryhma.*
+
 description 'Käyttäjä voi lisätä artikkeliviitteen'
  scenario "käyttäjä voi lisätä kunnollisen viitteen", {
     given 'lisäys on auki',{

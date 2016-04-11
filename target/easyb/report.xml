@@ -1,0 +1,13 @@
+<easyb time='Mon Apr 11 23:05:36 EEST 2016' totalbehaviors='1' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='1512'>
+  <stories scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='1512'>
+    <story name='artikkelin_luonti' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='1512'>
+      <description name='Käyttäjä voi lisätä artikkeliviitteen' />
+      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='658'>
+        <given name='lisäys on auki' result='success' />
+        <when name='lisätään lomakkeeseen tiedot' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+  </stories>
+  <specifications specifications='0' failedspecifications='0' pendingspecifications='0' executionTime='0' />
+</easyb>
