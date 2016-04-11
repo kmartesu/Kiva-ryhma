@@ -5,13 +5,12 @@ package kivaryhma;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author toffe
  */
 public class Article {
-    
+
     private String author;
     private String title;
     private String journal;
@@ -22,7 +21,7 @@ public class Article {
     private String month;
     private String note;
     private String key;
-    
+
     public Article() {
         //Toistaiseksi kaikki arvot Stringejä
     }
@@ -106,6 +105,31 @@ public class Article {
     public void setKey(String key) {
         this.key = key;
     }
-    
-    
+
+    public String toBibtex() {
+        //Tähän vois varmaan keksii jonkun paremmankin ratkasun.
+        StringBuilder sb = new StringBuilder();
+        sb.append("@article{").append(this.key).append(",");
+        sb.append("\nauthor = {").append(this.author).append("},");
+        sb.append("\ntitle = {").append(this.title).append("},");
+        if (!this.journal.isEmpty()) {
+            sb.append("\njournal = {").append(this.journal).append("},");
+        }
+        if (!this.volume.isEmpty()) {
+            sb.append("\nvolume = {").append(this.volume).append("},");
+        }
+        if (!this.number.isEmpty()) {
+            sb.append("\nnumber = {").append(this.number).append("},");
+        }
+        if (!this.year.isEmpty()) {
+            sb.append("\nyear = {").append(this.year).append("},");
+        }
+        if (!this.pages.isEmpty()) {
+            sb.append("\npages = {").append(this.pages).append("},");
+        }
+        sb.append("\n}\n");
+        //publisher, address?
+        return sb.toString();
+    }
+
 }

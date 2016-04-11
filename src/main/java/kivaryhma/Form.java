@@ -7,7 +7,13 @@ package kivaryhma;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
@@ -21,52 +27,52 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private Controller controller;
     private JLabel[] labels = new JLabel[10];
     private JTextField[] fields = new JTextField[10];
+
     /**
      * Creates new form Frame2
      */
     public Form() {
         //Luodaan komponentit
         initComponents();
-        
+
         //Actionlisteneri submit napille
         submitButton.addActionListener(this);
-        
+
         //Kaikki tekstikentät fields-listaan helpompaa käsittelyä varten
         gatherTextFields();
-        
+
         //Poistetaan plaveholderit jotka tuli netbeansin lomakkeenluojan mukana
         String[] temp = new String[0];
         referenceList.setListData(temp);
-    } 
-    
-    public void submitForm(){
-        
+    }
+
+    public void submitForm() {
+
         //Asetetaan arvot listaan
         String[] values = new String[10];
-        for(int i = 0; i<fields.length; i++) {
+        for (int i = 0; i < fields.length; i++) {
             values[i] = fields[i].getText();
         }
-        
+
         //Lähetetään lista controllerille
         controller.sendFormParameters(values);
-        
+
         //Päivitetään lista sivussa
         updateList();
     }
-    
+
     public void updateList() {
         ArrayList<String> data = new ArrayList<String>();
-        for(Article a:controller.getArticles()) {
-            data.add(a.getAuthor()+" - "+a.getJournal() + " - "+a.getTitle());
+        for (Article a : controller.getArticles()) {
+            data.add(a.getAuthor() + " - " + a.getJournal() + " - " + a.getTitle());
         }
         referenceList.setListData(data.toArray());
     }
-    
+
     public void registerController(Controller controller) {
         this.controller = controller;
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,6 +108,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         referenceList = new javax.swing.JList();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +143,13 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         });
         jScrollPane1.setViewportView(referenceList);
 
+        jButton1.setText("Bibtex");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bibtexButton(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -147,7 +161,10 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(submitButton)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(submitButton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton1))
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -256,7 +273,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
-                .addComponent(submitButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submitButton)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -273,6 +292,25 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bibtexButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexButton
+        //Bibtex filu löytyy sit sieltä projektin juuresta.
+        //Tää kirjottaa täl hetkel aina vanhan päälle uuden.
+        PrintWriter writer = null;
+        try {
+            ArrayList<Article> articles = new ArrayList<Article>(controller.getArticles());
+            writer = new PrintWriter("bibtex.bib");
+            for (Article article : articles) {
+                 writer.println(article.toBibtex());
+            }
+            writer.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Form.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            writer.close();
+        }
+
+    }//GEN-LAST:event_bibtexButton
 
     /**
      * @param args the command line arguments
@@ -301,17 +339,18 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 setVisible(true);
-                
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -359,16 +398,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         fields[8] = jTextField9;
         fields[9] = jTextField10;
     }
-    public JTextField[] getFields(){
+
+    public JTextField[] getFields() {
         return fields;
     }
-    public JList getReferenceList(){
+
+    public JList getReferenceList() {
         return referenceList;
     }
+
     public void emptyTextFields() {
-        for(int i = 0; i<fields.length; i++) {
+        for (int i = 0; i < fields.length; i++) {
             fields[i].setText("");
         }
     }
-    
+
 }
