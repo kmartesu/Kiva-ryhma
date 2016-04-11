@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JTextField;
 
 /**
@@ -358,7 +359,12 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         fields[8] = jTextField9;
         fields[9] = jTextField10;
     }
-    
+    public JTextField[] getFields(){
+        return fields;
+    }
+    public JList getReferenceList(){
+        return referenceList;
+    }
     public void emptyTextFields() {
         for(int i = 0; i<fields.length; i++) {
             fields[i].setText("");

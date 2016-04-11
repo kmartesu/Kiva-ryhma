@@ -28,8 +28,9 @@ public class Model {
     public ArrayList<Article> getReferences() {
         return references;
     }
-    
+    /**
     public void saveToFile() {
         //Ei toteutettu vielä
     }
+    **/
 }
