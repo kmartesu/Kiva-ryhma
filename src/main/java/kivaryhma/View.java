@@ -19,7 +19,6 @@ public class View {
     
     public void init() {
         form.display();
-        
     }
     
     public void setForm(Form form) {
