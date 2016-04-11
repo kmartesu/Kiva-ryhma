@@ -237,4 +237,11 @@ public class ArticleTest {
         assertEquals("key2",article.getKey());
     }
     
+    @Test
+    public void testToBibtex(){
+        System.out.println(article.toBibtex());
+        String test = "@article{key,\nauthor = {author},\ntitle = {title},\njournal = {journal},\nvolume = {volume},\nnumber = {number},\nyear = {year},\npages = {pages},\n}\n"; 
+        assertEquals(test, article.toBibtex());
+    }
+    
 }
