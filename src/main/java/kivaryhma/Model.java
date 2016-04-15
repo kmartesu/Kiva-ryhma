@@ -16,16 +16,16 @@ import java.util.ArrayList;
  */
 public class Model {
     
-    private ArrayList<Article> references = new ArrayList<Article>();
+    private ArrayList<Entry> references = new ArrayList<Entry>();
     private File referenceFile;
     
     public Model() {}
     
-    public void addReference(Article article) {
-        references.add(article);
+    public void addReference(Entry entry) {
+        references.add(entry);
     }
     
-    public ArrayList<Article> getReferences() {
+    public ArrayList<Entry> getReferences() {
         return references;
     }
     /**

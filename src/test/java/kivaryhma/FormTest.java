@@ -60,7 +60,7 @@ public class FormTest {
     public void testSubmitForm() {
      
       form.submitArticleForm();
-      Article article= controller.getArticles().get(0);
+      Article article = (Article) controller.getEntries().get(0);
       assertEquals(article.getAuthor(),"Test");
       assertEquals(article.getJournal(),"Test");
       assertEquals(article.getTitle(),"Test");

@@ -9,7 +9,7 @@ package kivaryhma;
  *
  * @author toffe
  */
-public class Article {
+public class Article implements Entry {
 
     private String author;
     private String title;
@@ -26,6 +26,7 @@ public class Article {
         //Toistaiseksi kaikki arvot Stringejä
     }
 
+    @Override
     public String getAuthor() {
         return author;
     }
@@ -34,6 +35,7 @@ public class Article {
         this.author = author;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -50,6 +52,7 @@ public class Article {
         this.journal = journal;
     }
 
+    @Override
     public String getYear() {
         return year;
     }
@@ -106,6 +109,7 @@ public class Article {
         this.key = key;
     }
 
+    @Override
     public String toBibtex() {
         //Tähän vois varmaan keksii jonkun paremmankin ratkasun.
         StringBuilder sb = new StringBuilder();

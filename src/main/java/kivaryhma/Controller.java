@@ -39,7 +39,7 @@ public class Controller {
         model.addReference(a);
     }
     
-    public ArrayList<Article> getArticles() {
+    public ArrayList<Entry> getEntries() {
         return model.getReferences();
     }
 }

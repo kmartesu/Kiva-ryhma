@@ -80,8 +80,8 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     //Päivitetään listanäkymä
     public void updateList() {
         ArrayList<String> data = new ArrayList<String>();
-        for (Article a : controller.getArticles()) {
-            data.add(a.getAuthor() + " - " + a.getJournal() + " - " + a.getTitle());
+        for (Entry entry : controller.getEntries()) {
+            data.add(entry.getAuthor() + " - " + entry.getYear() + " - " + entry.getTitle());
         }
         jList1.setListData(data.toArray());
     }
@@ -668,10 +668,10 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         //Tää kirjottaa täl hetkel aina vanhan päälle uuden.
         PrintWriter writer = null;
         try {
-            ArrayList<Article> articles = new ArrayList<Article>(controller.getArticles());
+            ArrayList<Entry> entries = new ArrayList<Entry>(controller.getEntries());
             writer = new PrintWriter("bibtex.bib");
-            for (Article article : articles) {
-                 writer.println(article.toBibtex());
+            for (Entry entry : entries) {
+                 writer.println(entry.toBibtex());
             }
             writer.close();
         } catch (FileNotFoundException ex) {

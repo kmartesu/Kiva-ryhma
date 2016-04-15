@@ -18,7 +18,7 @@ description 'Käyttäjä voi lisätä artikkeliviitteen'
         form.submitArticleForm();
     }
     then 'viite luodaan',{
-        Article article= controller.getArticles().get(0);
+        Article article= controller.getEntries().get(0);
         article.shouldNotBe null
     }
 }

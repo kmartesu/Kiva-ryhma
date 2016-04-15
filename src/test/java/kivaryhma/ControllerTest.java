@@ -52,7 +52,7 @@ public class ControllerTest {
     public void testSendFormParameters() {
         String[] fields = {"Author","Title","Journal","Year","Volume","Number","Pages","Month","Note","Key"};
         controller.sendArticleFormParameters(fields);
-        Article article = controller.getArticles().get(0);
+        Article article = (Article) controller.getEntries().get(0);
         assertEquals(article.getAuthor(),fields[0]);
         assertEquals(article.getTitle(),fields[1]);
         assertEquals(article.getJournal(),fields[2]);
@@ -75,10 +75,10 @@ public class ControllerTest {
         String[] fields2 = {"Author2","Title2","Journal2","Year2","Volume2","Number2","Pages2","Month2","Note2","Key2"};
         controller.sendArticleFormParameters(fields);
         controller.sendArticleFormParameters(fields2);
-        ArrayList<Article> articles = controller.getArticles();
+        ArrayList<Entry> articles = controller.getEntries();
         assertTrue(articles.size()==2);
-        Article article = articles.get(0);
-        Article article2 = articles.get(1);
+        Article article =(Article) articles.get(0);
+        Article article2 =(Article) articles.get(1);
         assertEquals(article.getAuthor(),fields[0]);
         assertEquals(article.getTitle(),fields[1]);
         assertEquals(article.getJournal(),fields[2]);
@@ -89,7 +89,7 @@ public class ControllerTest {
         assertEquals(article.getMonth(),fields[7]);
         assertEquals(article.getNote(),fields[8]);
         assertEquals(article.getKey(),fields[9]);
-         assertEquals(article2.getAuthor(),fields2[0]);
+        assertEquals(article2.getAuthor(),fields2[0]);
         assertEquals(article2.getTitle(),fields2[1]);
         assertEquals(article2.getJournal(),fields2[2]);
         assertEquals(article2.getYear(),fields2[3]);
