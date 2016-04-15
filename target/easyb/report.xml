@@ -1,8 +1,8 @@
-<easyb time='Tue Apr 12 11:10:59 EEST 2016' totalbehaviors='1' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='1699'>
-  <stories scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='1699'>
-    <story name='artikkelin_luonti' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='1699'>
+<easyb time='Fri Apr 15 14:56:34 EEST 2016' totalbehaviors='1' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='1532'>
+  <stories scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='1532'>
+    <story name='artikkelin_luonti' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='1532'>
       <description name='Käyttäjä voi lisätä artikkeliviitteen' />
-      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='793'>
+      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='782'>
         <given name='lisäys on auki' result='success' />
         <when name='lisätään lomakkeeseen tiedot' result='success' />
         <then name='viite luodaan' result='success' />

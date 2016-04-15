@@ -12,10 +12,10 @@ description 'Käyttäjä voi lisätä artikkeliviitteen'
         view.registerController(controller);
     }
     when 'lisätään lomakkeeseen tiedot',{
-        for(int i=0;i<form.getFields().length;i++){
-            form.getFields()[i].setText("Text");
+        for(int i=0;i<form.getArticleFields().length;i++){
+            form.getArticleFields()[i].setText("Text");
         }
-        form.submitForm();
+        form.submitArticleForm();
     }
     then 'viite luodaan',{
         Article article= controller.getArticles().get(0);
