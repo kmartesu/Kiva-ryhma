@@ -43,8 +43,8 @@ public class FormTest {
         form.registerController(controller);
         view.setForm(form);
         view.registerController(controller);
-        for(int i=0;i<form.getFields().length;i++){
-            form.getFields()[i].setText("Test");
+        for(int i=0;i<form.getArticleFields().length;i++){
+            form.getArticleFields()[i].setText("Test");
         }
        
     }
@@ -59,7 +59,7 @@ public class FormTest {
     @Test
     public void testSubmitForm() {
      
-      form.submitForm();
+      form.submitArticleForm();
       Article article= controller.getArticles().get(0);
       assertEquals(article.getAuthor(),"Test");
       assertEquals(article.getJournal(),"Test");
@@ -77,7 +77,7 @@ public class FormTest {
      */
     @Test
     public void testUpdateList() {
-        form.submitForm();
+        form.submitArticleForm();
           
   
     }
@@ -112,7 +112,7 @@ public class FormTest {
      */
     @Test
     public void testGatherTextFields() {
-     form.gatherTextFields();
+     form.gatherArticleTextFields();
     }
 
     /**
@@ -120,9 +120,9 @@ public class FormTest {
      */
     @Test
     public void testEmptyTextFields() {
-        form.emptyTextFields();
-        for(int i=0;i<form.getFields().length;i++){
-            assertEquals(form.getFields()[i].getText(),"");
+        form.emptyArticleTextFields();
+        for(int i=0;i<form.getArticleFields().length;i++){
+            assertEquals(form.getArticleFields()[i].getText(),"");
         }
     }
     

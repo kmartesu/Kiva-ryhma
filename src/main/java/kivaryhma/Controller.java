@@ -23,7 +23,7 @@ public class Controller {
     }
     
     //Voisiko tämän toteutta kauniimmin?
-    public void sendFormParameters(String[] fields) {
+    public void sendArticleFormParameters(String[] fields) {
         Article a = new Article();
         a.setAuthor(fields[0]);
         a.setTitle(fields[1]);

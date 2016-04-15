@@ -51,7 +51,7 @@ public class ControllerTest {
     @Test
     public void testSendFormParameters() {
         String[] fields = {"Author","Title","Journal","Year","Volume","Number","Pages","Month","Note","Key"};
-        controller.sendFormParameters(fields);
+        controller.sendArticleFormParameters(fields);
         Article article = controller.getArticles().get(0);
         assertEquals(article.getAuthor(),fields[0]);
         assertEquals(article.getTitle(),fields[1]);
@@ -73,8 +73,8 @@ public class ControllerTest {
     public void testGetArticles() {
         String[] fields = {"Author","Title","Journal","Year","Volume","Number","Pages","Month","Note","Key"};
         String[] fields2 = {"Author2","Title2","Journal2","Year2","Volume2","Number2","Pages2","Month2","Note2","Key2"};
-        controller.sendFormParameters(fields);
-        controller.sendFormParameters(fields2);
+        controller.sendArticleFormParameters(fields);
+        controller.sendArticleFormParameters(fields2);
         ArrayList<Article> articles = controller.getArticles();
         assertTrue(articles.size()==2);
         Article article = articles.get(0);
