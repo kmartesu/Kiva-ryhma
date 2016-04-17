@@ -82,7 +82,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        if(author.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.author = author;
+        }
     }
     
     @Override
@@ -91,7 +96,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(title.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.title = title;
+        }
     }
 
     public String getBooktitle() {
@@ -99,7 +109,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setBooktitle(String booktitle) {
-        this.booktitle = booktitle;
+        if(booktitle.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else{
+            this.booktitle = booktitle;
+        }
     }
 
     @Override
@@ -108,7 +123,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setYear(String year) {
-        this.year = year;
+        if(year.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.year = year;
+        }
     }
 
     public String getEditor() {

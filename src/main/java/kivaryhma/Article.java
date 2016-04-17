@@ -32,16 +32,26 @@ public class Article implements Entry {
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        if(author.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.author = author;    
+        }
     }
-
+    
     @Override
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(title.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.title = title;
+        }
     }
 
     public String getJournal() {
@@ -49,7 +59,12 @@ public class Article implements Entry {
     }
 
     public void setJournal(String journal) {
-        this.journal = journal;
+        if(journal.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.journal = journal;
+        }
     }
 
     @Override
@@ -58,7 +73,12 @@ public class Article implements Entry {
     }
 
     public void setYear(String year) {
-        this.year = year;
+        if(year.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.year = year;
+        }
     }
 
     public String getVolume() {
@@ -66,7 +86,12 @@ public class Article implements Entry {
     }
 
     public void setVolume(String volume) {
-        this.volume = volume;
+        if(volume.trim().length()==0){
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.volume = volume;
+        }
     }
 
     public String getNumber() {

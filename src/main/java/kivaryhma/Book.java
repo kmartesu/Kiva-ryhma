@@ -66,7 +66,12 @@ public class Book implements Entry{
     }
 
     public void setPublisher(String publisher) {
-        this.publisher = publisher;
+        if(publisher.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.publisher = publisher;
+        }
     }
 
     public String getVolume() {
@@ -131,7 +136,12 @@ public class Book implements Entry{
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        if(author.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.author = author;
+        }
     }
 
     @Override
@@ -140,7 +150,12 @@ public class Book implements Entry{
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(title.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.title = title;
+        }
     }
 
     @Override
@@ -149,7 +164,12 @@ public class Book implements Entry{
     }
 
     public void setYear(String year) {
-        this.year = year;
+        if(year.trim().length()==0) {
+            //Tyhjä inputti -- millainen virheilmoitus?
+        }
+        else {
+            this.year = year;
+        }
     }
     
 }
