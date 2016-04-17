@@ -21,13 +21,20 @@ public class Model {
     
     public Model() {}
     
-    public void addReference(Entry entry) {
-        references.add(entry);
+    public boolean addReference(Entry entry) {
+        if(entry.isAuthentic()) {
+            references.add(entry);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     public ArrayList<Entry> getReferences() {
         return references;
     }
+    
     /**
     public void saveToFile() {
         //Ei toteutettu vielä

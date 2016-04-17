@@ -21,6 +21,7 @@ public class Article implements Entry {
     private String month;
     private String note;
     private String key;
+    private boolean isAuthentic = true;
 
     public Article() {
         //Toistaiseksi kaikki arvot Stringejä
@@ -32,16 +33,26 @@ public class Article implements Entry {
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        if(author.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.author = author;    
+        }
     }
-
+    
     @Override
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(title.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.title = title;
+        }
     }
 
     public String getJournal() {
@@ -49,7 +60,12 @@ public class Article implements Entry {
     }
 
     public void setJournal(String journal) {
-        this.journal = journal;
+        if(journal.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.journal = journal;
+        }
     }
 
     @Override
@@ -58,7 +74,12 @@ public class Article implements Entry {
     }
 
     public void setYear(String year) {
-        this.year = year;
+        if(year.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.year = year;
+        }
     }
 
     public String getVolume() {
@@ -66,7 +87,12 @@ public class Article implements Entry {
     }
 
     public void setVolume(String volume) {
-        this.volume = volume;
+        if(volume.trim().length()==0){
+            isAuthentic = false;
+        }
+        else {
+            this.volume = volume;
+        }
     }
 
     public String getNumber() {
@@ -107,6 +133,11 @@ public class Article implements Entry {
 
     public void setKey(String key) {
         this.key = key;
+    }
+    
+    @Override
+    public boolean isAuthentic() {
+        return isAuthentic;
     }
 
     @Override

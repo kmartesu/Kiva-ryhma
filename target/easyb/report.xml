@@ -1,10 +1,67 @@
-<easyb time='Fri Apr 15 20:43:32 EEST 2016' totalbehaviors='1' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='4422'>
-  <stories scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='4422'>
-    <story name='artikkelin_luonti' scenarios='1' failedscenarios='0' pendingscenarios='0' executionTime='4422'>
-      <description name='Käyttäjä voi lisätä artikkeliviitteen' />
-      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='1747'>
+<easyb time='Sun Apr 17 17:09:08 EEST 2016' totalbehaviors='10' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='2829'>
+  <stories scenarios='10' failedscenarios='0' pendingscenarios='0' executionTime='2829'>
+    <story name='virheviestin_nakyminen' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='1598'>
+      <description name='Virheviesti ilmoittaa kenttien oikeellisuudesta' />
+      <scenario name='Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä' result='success' executionTime='720'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään pakollisia kenttiä täyttämättä' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+      <scenario name='Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty' result='success' executionTime='117'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään pakollisia kenttiä täyttämättä' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+    <story name='viitteen_lisaaminen_paivittaa_listan' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='481'>
+      <description name='Käyttäjä näkee viitteen listassa lisäämisen jälkeen' />
+      <scenario name='Käyttäjä näkee viitteen lisättyään oikeellisen viitteen' result='success' executionTime='118'>
+        <given name='lisäys on auki' result='success' />
+        <when name='lisätään lomakkeeseen tiedot ja submitataan' result='success' />
+        <then name='viite luodaan ja se on näkymässä' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä' result='success' executionTime='84'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+    <story name='bookin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='286'>
+      <description name='Käyttäjänä pystyn lisäämään book-viitteen' />
+      <scenario name='Käyttäjä voi lisätä oikeellisen viitteen' result='success' executionTime='88'>
+        <given name='book lisäys on auki' result='success' />
+        <when name='lisätään lomakkeeseen tiedot' result='success' />
+        <then name='book-viite luodaan' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä' result='success' executionTime='76'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+    <story name='inproceedingsin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='259'>
+      <description name='Käyttäjä voi lisätä inproceedings-viitteen' />
+      <scenario name='Käyttäjä voi lisätä oikeellisen inproceedings-viitteen' result='success' executionTime='75'>
         <given name='lisäys on auki' result='success' />
         <when name='lisätään lomakkeeseen tiedot' result='success' />
+        <then name='inproceedings-viite luodaan' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä' result='success' executionTime='70'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+    <story name='artikkelin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='205'>
+      <description name='Käyttäjä voi lisätä artikkeliviitteen' />
+      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='53'>
+        <given name='lisäys on auki' result='success' />
+        <when name='lisätään lomakkeeseen tiedot' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä' result='success' executionTime='48'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
         <then name='viite luodaan' result='success' />
       </scenario>
     </story>

@@ -21,6 +21,7 @@ public class ControllerTest {
     private View view;
     private Model model;
     private Controller controller;
+    private Form form;
     public ControllerTest() {
     }
     
@@ -39,6 +40,10 @@ public class ControllerTest {
         model = new Model();
         controller = new Controller(model,view);
         view.registerController(controller);
+        form = new Form();
+        form.registerController(controller);
+        view.setForm(form);
+        
     }
     
     @After

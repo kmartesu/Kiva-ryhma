@@ -25,6 +25,7 @@ public class Inproceedings implements Entry{
     private String note;
     private String key;
     private String pages;
+    private boolean isAuthentic = true;
     
         @Override
 
@@ -82,7 +83,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        if(author.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.author = author;
+        }
     }
     
     @Override
@@ -91,7 +97,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(title.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.title = title;
+        }
     }
 
     public String getBooktitle() {
@@ -99,7 +110,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setBooktitle(String booktitle) {
-        this.booktitle = booktitle;
+        if(booktitle.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else{
+            this.booktitle = booktitle;
+        }
     }
 
     @Override
@@ -108,7 +124,12 @@ public class Inproceedings implements Entry{
     }
 
     public void setYear(String year) {
-        this.year = year;
+        if(year.trim().length()==0) {
+            isAuthentic = false;
+        }
+        else {
+            this.year = year;
+        }
     }
 
     public String getEditor() {
@@ -189,5 +210,10 @@ public class Inproceedings implements Entry{
 
     public void setKey(String key) {
         this.key = key;
+    }
+    
+    @Override
+    public boolean isAuthentic() {
+        return isAuthentic;
     }
 }
