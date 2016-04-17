@@ -36,7 +36,7 @@ public class Controller {
         a.setNote(fields[8]);
         a.setKey(fields[9]);
         
-        model.addReference(a);
+        addReferenceToModel(a);
     }
     
     public void sendBookFormParameters (String[] fields) {
@@ -52,7 +52,8 @@ public class Controller {
         b.setMonth(fields[8]);
         b.setNote(fields[9]);
         b.setKey(fields[10]);
-        model.addReference(b);
+        
+        addReferenceToModel(b);
     }
     
     public void sendInproceedingsFormParameters(String[] fields) {
@@ -72,10 +73,23 @@ public class Controller {
         i.setNote(fields[12]);
         i.setKey(fields[13]);
         
-        model.addReference(i);
+        addReferenceToModel(i);
     }
     
     public ArrayList<Entry> getEntries() {
         return model.getReferences();
+    }
+    
+    public void addReferenceToModel(Entry e) {
+        if(!model.addReference(e)) {
+            setVirhe("Pakollisia kenttiä täyttämättä!");
+        }
+        else {
+            setVirhe("");
+        }
+    }
+    
+    public void setVirhe(String virhe) {
+        view.getForm().setVirheViesti(virhe);
     }
 }

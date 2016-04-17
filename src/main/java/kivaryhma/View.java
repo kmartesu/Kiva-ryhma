@@ -29,5 +29,9 @@ public class View {
         this.controller = controller;
     }
     
+    public Form getForm() {
+        return form;
+    }
+    
     
 }
