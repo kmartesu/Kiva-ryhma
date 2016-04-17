@@ -120,7 +120,7 @@ public class FormTest {
      */
     @Test
     public void testEmptyTextFields() {
-        form.emptyArticleTextFields();
+        form.emptyReferenceTextFields(form.getArticleFields());
         for(int i=0;i<form.getArticleFields().length;i++){
             assertEquals(form.getArticleFields()[i].getText(),"");
         }

@@ -53,18 +53,16 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public void submitArticleForm() {
         //Lähetetään lista controllerille
         controller.sendArticleFormParameters(gatherValues(articleFields));
-        //Päivitetään lista sivussa
-        updateList();
     }
     
     public void submitBookForm() {
         //Lähetetään kontrollerimetodille tavarat bookformista
-        updateList();
+        controller.sendBookFormParameters(gatherValues(bookFields));
     }
     
     public void submitInproceedingsForm() {
         //lähetetään kontrollerimetodille tavarat inproceedings formista
-        updateList();
+        controller.sendInproceedingsFormParameters(gatherValues(inproceedingsFields));
     }
     
     
@@ -708,10 +706,14 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
     private void bookSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookSubmitActionPerformed
         submitBookForm();
+        updateList();
+        emptyReferenceTextFields(bookFields);
     }//GEN-LAST:event_bookSubmitActionPerformed
 
     private void submitInproceedingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitInproceedingsActionPerformed
         submitInproceedingsForm();
+        updateList();
+        emptyReferenceTextFields(inproceedingsFields);
     }//GEN-LAST:event_submitInproceedingsActionPerformed
 
     /**
@@ -839,7 +841,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         //Napinpainallus submittaa formin
         submitArticleForm();
-        emptyArticleTextFields();
+        //Päivitetään lista sivussa ja tyhjennetään tekstikentät
+        emptyReferenceTextFields(articleFields);
+        updateList();
     }
     
     public void gatherBookTextFields() {
@@ -886,6 +890,14 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         inproceedingsFields[13] = inproceedingsKey;
     }
 
+    public JTextField[] getBookFields() {
+        return bookFields;
+    }
+    
+    public JTextField[] getInproceedingsFields() {
+        return inproceedingsFields;
+    }
+    
     public JTextField[] getArticleFields() {
         return articleFields;
     }
@@ -894,10 +906,11 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         return jList1;
     }
 
-    public void emptyArticleTextFields() {
-        for (int i = 0; i < articleFields.length; i++) {
-            articleFields[i].setText("");
+    //metodi tyhjentää jonkun lomakkeen tekstikentät
+    public void emptyReferenceTextFields(JTextField[] fields) {
+        for(int i = 0; i < fields.length; i++) {
+            fields[i].setText("");
         }
-    }
+    } 
 
 }

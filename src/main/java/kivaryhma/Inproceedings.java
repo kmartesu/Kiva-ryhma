@@ -24,6 +24,7 @@ public class Inproceedings implements Entry{
     private String publisher;
     private String note;
     private String key;
+    private String pages;
     
         @Override
 
@@ -67,6 +68,14 @@ public class Inproceedings implements Entry{
         return sb.toString();
     }
 
+    public String getPages() {
+        return pages;
+    }
+    
+    public void setPages(String pages) {
+        this.pages = pages;
+    }
+    
     @Override
     public String getAuthor() {
         return author;

@@ -39,6 +39,43 @@ public class Controller {
         model.addReference(a);
     }
     
+    public void sendBookFormParameters (String[] fields) {
+        Book b = new Book();
+        b.setAuthor(fields[0]);
+        b.setTitle(fields[1]);
+        b.setPublisher(fields[2]);
+        b.setYear(fields[3]);
+        b.setVolume(fields[4]);
+        b.setSeries(fields[5]);
+        b.setAddress(fields[6]);
+        b.setEdition(fields[7]);
+        b.setMonth(fields[8]);
+        b.setNote(fields[9]);
+        b.setKey(fields[10]);
+        
+        model.addReference(b);
+    }
+    
+    public void sendInproceedingsFormParameters(String[] fields) {
+        Inproceedings i = new Inproceedings();
+        i.setAuthor(fields[0]);
+        i.setTitle(fields[1]);
+        i.setBooktitle(fields[2]);
+        i.setYear(fields[3]);
+        i.setEditor(fields[4]);
+        i.setVolume(fields[5]);
+        i.setSeries(fields[6]);
+        i.setPages(fields[7]);
+        i.setAddress(fields[8]);
+        i.setMonth(fields[9]);
+        i.setOrganization(fields[10]);
+        i.setPublisher(fields[11]);
+        i.setNote(fields[12]);
+        i.setKey(fields[13]);
+        
+        model.addReference(i);
+    }
+    
     public ArrayList<Entry> getEntries() {
         return model.getReferences();
     }
