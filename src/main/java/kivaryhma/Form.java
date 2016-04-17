@@ -656,7 +656,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(virheViesti)
-                        .addGap(32, 32, 32)
+                        .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
@@ -924,9 +924,8 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public void setVirheViesti(String viesti) {
         virheViesti.setText(viesti);
     }
-    
-    public void emptyVirheViesti() {
-        virheViesti.setText("");
-    }
 
+    public JLabel getVirheViesti() {
+        return virheViesti;
+    }
 }

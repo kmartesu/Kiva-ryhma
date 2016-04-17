@@ -1,4 +1,4 @@
-<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='1.803' name='behavior.viitteen_lisaaminen_paivittaa_listan'>
-  <testcase classname='behavior.viitteen_lisaaminen_paivittaa_listan' name='Käyttäjä näkee viitteen lisättyään oikeellisen viitteen' time='0.742' />
-  <testcase classname='behavior.viitteen_lisaaminen_paivittaa_listan' name='Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä' time='0.096' />
+<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.481' name='behavior.viitteen_lisaaminen_paivittaa_listan'>
+  <testcase classname='behavior.viitteen_lisaaminen_paivittaa_listan' name='Käyttäjä näkee viitteen lisättyään oikeellisen viitteen' time='0.118' />
+  <testcase classname='behavior.viitteen_lisaaminen_paivittaa_listan' name='Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä' time='0.084' />
 </testsuite>

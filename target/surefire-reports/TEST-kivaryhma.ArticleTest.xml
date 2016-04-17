@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="21" failures="0" name="kivaryhma.ArticleTest" time="0.014" errors="0" skipped="0">
+<testsuite tests="21" failures="0" name="kivaryhma.ArticleTest" time="0.047" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -59,25 +59,25 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="kivaryhma.ArticleTest" name="testGetAuthor" time="0.001"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testGetAuthor" time="0.002"/>
   <testcase classname="kivaryhma.ArticleTest" name="testSetAuthor" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testGetTitle" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testGetTitle" time="0.001"/>
   <testcase classname="kivaryhma.ArticleTest" name="testSetTitle" time="0"/>
   <testcase classname="kivaryhma.ArticleTest" name="testGetJournal" time="0"/>
   <testcase classname="kivaryhma.ArticleTest" name="testSetJournal" time="0"/>
   <testcase classname="kivaryhma.ArticleTest" name="testGetYear" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testSetYear" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testGetVolume" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testSetYear" time="0.003"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testGetVolume" time="0.001"/>
   <testcase classname="kivaryhma.ArticleTest" name="testSetVolume" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testGetNumber" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testGetNumber" time="0.001"/>
   <testcase classname="kivaryhma.ArticleTest" name="testSetNumber" time="0"/>
   <testcase classname="kivaryhma.ArticleTest" name="testGetPages" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testSetPages" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testSetPages" time="0.001"/>
   <testcase classname="kivaryhma.ArticleTest" name="testGetMonth" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testSetMonth" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testSetMonth" time="0.002"/>
   <testcase classname="kivaryhma.ArticleTest" name="testGetNote" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testSetNote" time="0.001"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testGetKey" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testSetNote" time="0"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testGetKey" time="0.001"/>
   <testcase classname="kivaryhma.ArticleTest" name="testSetKey" time="0"/>
-  <testcase classname="kivaryhma.ArticleTest" name="testToBibtex" time="0.002"/>
+  <testcase classname="kivaryhma.ArticleTest" name="testToBibtex" time="0.004"/>
 </testsuite>
