@@ -14,8 +14,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -667,22 +670,27 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public JButton getJButton1(){
+        return this.jButton1;
+    }
     private void bibtexButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexButton
         //Bibtex filu löytyy sit sieltä projektin juuresta.
         //Tää kirjottaa täl hetkel aina vanhan päälle uuden.
         PrintWriter writer = null;
         try {
             ArrayList<Entry> entries = new ArrayList<Entry>(controller.getEntries());
-            writer = new PrintWriter("bibtex.bib");
-            for (Entry entry : entries) {
-                 writer.println(entry.toBibtex());
+            JFileChooser fileChooser = new JFileChooser();
+            int retrieval = fileChooser.showSaveDialog(rootPane);
+            if(retrieval== JFileChooser.APPROVE_OPTION){
+                writer = new PrintWriter(fileChooser.getSelectedFile()+".bib");
+                for (Entry entry : entries) {
+                    writer.println(entry.toBibtex());
+                }
+                writer.close();
             }
-            writer.close();
+             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Form.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            writer.close();
+            JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_bibtexButton
