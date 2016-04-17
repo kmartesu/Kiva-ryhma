@@ -22,7 +22,12 @@ public class Model {
     public Model() {}
     
     public void addReference(Entry entry) {
-        references.add(entry);
+        if(entry.isAuthentic()) {
+            references.add(entry);
+        }
+        else {
+            //Miten toimitaan jos ei autenttinen?
+        }
     }
     
     public ArrayList<Entry> getReferences() {

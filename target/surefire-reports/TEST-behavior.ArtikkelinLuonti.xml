@@ -1,3 +1,4 @@
-<testsuite tests='1' results='1' failures='0' disabled='0' errors='0' time='0.154' name='behavior.artikkelin_luonti'>
-  <testcase classname='behavior.artikkelin_luonti' name='käyttäjä voi lisätä kunnollisen viitteen' time='0.083' />
+<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.248' name='behavior.artikkelin_luonti'>
+  <testcase classname='behavior.artikkelin_luonti' name='käyttäjä voi lisätä kunnollisen viitteen' time='0.08' />
+  <testcase classname='behavior.artikkelin_luonti' name='Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä' time='0.058' />
 </testsuite>

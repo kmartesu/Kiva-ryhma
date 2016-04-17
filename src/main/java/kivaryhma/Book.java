@@ -21,6 +21,7 @@ public class Book implements Entry{
     private String month;
     private String note;
     private String key;
+    private boolean isAuthentic = true;
     
     
     @Override
@@ -67,7 +68,7 @@ public class Book implements Entry{
 
     public void setPublisher(String publisher) {
         if(publisher.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.publisher = publisher;
@@ -137,7 +138,7 @@ public class Book implements Entry{
 
     public void setAuthor(String author) {
         if(author.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.author = author;
@@ -151,7 +152,7 @@ public class Book implements Entry{
 
     public void setTitle(String title) {
         if(title.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.title = title;
@@ -165,11 +166,15 @@ public class Book implements Entry{
 
     public void setYear(String year) {
         if(year.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.year = year;
         }
     }
     
+    @Override
+    public boolean isAuthentic() {
+        return isAuthentic;
+    }
 }

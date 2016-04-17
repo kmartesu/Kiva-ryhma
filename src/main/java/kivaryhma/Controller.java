@@ -52,7 +52,6 @@ public class Controller {
         b.setMonth(fields[8]);
         b.setNote(fields[9]);
         b.setKey(fields[10]);
-        
         model.addReference(b);
     }
     

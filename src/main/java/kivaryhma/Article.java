@@ -21,6 +21,7 @@ public class Article implements Entry {
     private String month;
     private String note;
     private String key;
+    private boolean isAuthentic = true;
 
     public Article() {
         //Toistaiseksi kaikki arvot Stringejä
@@ -33,7 +34,7 @@ public class Article implements Entry {
 
     public void setAuthor(String author) {
         if(author.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.author = author;    
@@ -47,7 +48,7 @@ public class Article implements Entry {
 
     public void setTitle(String title) {
         if(title.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.title = title;
@@ -60,7 +61,7 @@ public class Article implements Entry {
 
     public void setJournal(String journal) {
         if(journal.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.journal = journal;
@@ -74,7 +75,7 @@ public class Article implements Entry {
 
     public void setYear(String year) {
         if(year.trim().length()==0) {
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.year = year;
@@ -87,7 +88,7 @@ public class Article implements Entry {
 
     public void setVolume(String volume) {
         if(volume.trim().length()==0){
-            //Tyhjä inputti -- millainen virheilmoitus?
+            isAuthentic = false;
         }
         else {
             this.volume = volume;
@@ -132,6 +133,11 @@ public class Article implements Entry {
 
     public void setKey(String key) {
         this.key = key;
+    }
+    
+    @Override
+    public boolean isAuthentic() {
+        return isAuthentic;
     }
 
     @Override
