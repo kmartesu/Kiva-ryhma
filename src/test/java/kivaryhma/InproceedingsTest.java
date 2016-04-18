@@ -65,7 +65,7 @@ public class InproceedingsTest {
      */
     @Test
     public void testToBibtex() {
-        String test = "@inproceedings{key,\nauthor = {author},\ntitle = {title},\npublisher = {publisher},\nvolume = {volume},\nseries = {series},\nyear = {year},\naddress = {address},\nmonth = {month},\nnote = {note},\nkey = {key},\norganization = {organization},\n}\n";
+        String test = "@inproceedings{key,\nauthor = {author},\ntitle = {title},\npublisher = {publisher},\nvolume = {volume},\nseries = {series},\nyear = {year},\naddress = {address},\nbooktitle = {booktitle},\nmonth = {month},\nnote = {note},\npages = {pages},\neditor = {editor},\norganization = {organization},\n}\n";
         assertEquals(test, in.toBibtex());
     }
 
