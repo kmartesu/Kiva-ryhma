@@ -48,15 +48,20 @@ public class Inproceedings implements Entry{
         if (!this.address.isEmpty()) {
             sb.append("\naddress = {").append(this.address).append("},");
         }
-
+        if (!this.booktitle.isEmpty()) {
+            sb.append("\nbooktitle = {").append(this.booktitle).append("},");
+        }
         if (!this.month.isEmpty()) {
             sb.append("\nmonth = {").append(this.month).append("},");
         }
         if (!this.note.isEmpty()) {
             sb.append("\nnote = {").append(this.note).append("},");
         }
-        if (!this.key.isEmpty()) {
-            sb.append("\nkey = {").append(this.key).append("},");
+        if(!this.pages.isEmpty()) {
+            sb.append("\npages = {").append(this.pages).append("},");
+        }
+        if (!this.editor.isEmpty()) {
+            sb.append("\neditor = {").append(this.editor).append("},");
         }
         if (!this.organization.isEmpty()) {
             sb.append("\norganization = {").append(this.organization).append("},");
