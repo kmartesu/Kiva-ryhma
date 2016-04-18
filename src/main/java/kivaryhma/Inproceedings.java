@@ -10,21 +10,21 @@ package kivaryhma;
  * @author Jonas
  */
 public class Inproceedings implements Entry{
-    private String author;
-    private String title;
-    private String booktitle;
-    private String year;
-    private String editor;
-    private String volume;
-    private String series;
-    private String address;
-    private String edition;
-    private String month;
-    private String organization;
-    private String publisher;
-    private String note;
-    private String key;
-    private String pages;
+    private String author = "";
+    private String title="";
+    private String booktitle="";
+    private String year="";
+    private String editor="";
+    private String volume="";
+    private String series="";
+    private String address="";
+    private String edition="";
+    private String month="";
+    private String organization="";
+    private String publisher="";
+    private String note="";
+    private String key="";
+    private String pages="";
     private boolean isAuthentic = true;
     
         @Override

@@ -10,17 +10,17 @@ package kivaryhma;
  * @author Jonas
  */
 public class Book implements Entry{
-    private String author;
-    private String title;
-    private String publisher;
-    private String year;
-    private String volume;
-    private String series;
-    private String address;
-    private String edition;
-    private String month;
-    private String note;
-    private String key;
+    private String author="";
+    private String title="";
+    private String publisher="";
+    private String year="";
+    private String volume="";
+    private String series="";
+    private String address="";
+    private String edition="";
+    private String month="";
+    private String note="";
+    private String key="";
     private boolean isAuthentic = true;
     
     
