@@ -134,54 +134,331 @@ public class FormTest {
         }
     }
     public class Apu extends Thread{
-        private Form form;
-        public Apu(Form form){
-            this.form = form;
-        }
-        
-        @Override
-        public void run(){
-            try{
-                Robot robot = new Robot();
-                robot.delay(500);
-                robot.keyPress(KeyEvent.VK_ENTER);
+        private Robot robot;
+        public Apu(){
+            try {
+                this.robot = new Robot();
+                
             } catch (AWTException ex) {
                 Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
         }
-
         
+        @Override
+        public void run(){ 
+                if(robot!=null){
+                    robot.delay(500);
+                    robot.keyPress(KeyEvent.VK_ENTER);
+                    robot.keyRelease(KeyEvent.VK_ENTER);
+                    robot = null;
+                }
+                
+        }
     }
     @Test
+    
     public void testBibtex(){
        
-        form.submitArticleForm();
-        this.form.getFileChooser().setSelectedFile(new File("testi"));
-         Apu apu = new Apu(this.form);
-         apu.start();
-        this.form.getJButton1().doClick();
-        assertTrue(new File("testi.bib").exists());
+        try {
+            form.submitArticleForm();
+            this.form.getFileChooser().setSelectedFile(new File("testi"));
+            Apu apu = new Apu();
+            apu.start();
+            this.form.getJButton1().doClick();
+            apu.join();
+            assertTrue(new File("testi.bib").exists());
+        } catch (InterruptedException ex) {
+            Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
         
     }
-    public void traverse(JPanel c){
-        for(int i=0;i<c.getComponentCount();i++){
-          
-            if(c.getComponent(i) instanceof JButton){
-               JButton btn = (JButton)c.getComponent(i);
-               System.out.println(btn.getText());
-               if(btn.getText()!=null&&btn.getText().equals("Save")){
-            
-                   btn.doClick();
-               }
-            }
-            else if(c.getComponent(i) instanceof JPanel){
-                traverse((JPanel)c.getComponent(i));
-            }
-        }
-         
-        
-    }
+}    
     
-}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
