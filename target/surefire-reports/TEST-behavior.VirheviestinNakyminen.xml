@@ -1,4 +1,4 @@
-<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.152' name='behavior.virheviestin_nakyminen'>
-  <testcase classname='behavior.virheviestin_nakyminen' name='Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä' time='0.047' />
-  <testcase classname='behavior.virheviestin_nakyminen' name='Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty' time='0.046' />
+<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='1.783' name='behavior.virheviestin_nakyminen'>
+  <testcase classname='behavior.virheviestin_nakyminen' name='Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä' time='0.867' />
+  <testcase classname='behavior.virheviestin_nakyminen' name='Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty' time='0.129' />
 </testsuite>
