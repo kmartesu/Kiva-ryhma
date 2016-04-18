@@ -9,7 +9,8 @@ package kivaryhma;
  *
  * @author Jonas
  */
-public class Inproceedings implements Entry{
+public class Inproceedings implements Entry {
+
     private String author;
     private String title;
     private String booktitle;
@@ -18,7 +19,6 @@ public class Inproceedings implements Entry{
     private String volume;
     private String series;
     private String address;
-    private String edition;
     private String month;
     private String organization;
     private String publisher;
@@ -26,8 +26,6 @@ public class Inproceedings implements Entry{
     private String key;
     private String pages;
     private boolean isAuthentic = true;
-    
-        @Override
 
     public String toBibtex() {
         StringBuilder sb = new StringBuilder();
@@ -49,9 +47,7 @@ public class Inproceedings implements Entry{
         if (!this.address.isEmpty()) {
             sb.append("\naddress = {").append(this.address).append("},");
         }
-        if (!this.edition.isEmpty()) {
-            sb.append("\nedition = {").append(this.edition).append("},");
-        }
+
         if (!this.month.isEmpty()) {
             sb.append("\nmonth = {").append(this.month).append("},");
         }
@@ -65,42 +61,39 @@ public class Inproceedings implements Entry{
             sb.append("\norganization = {").append(this.organization).append("},");
         }
         sb.append("\n}\n");
-        //publisher, address?
         return sb.toString();
     }
 
     public String getPages() {
         return pages;
     }
-    
+
     public void setPages(String pages) {
         this.pages = pages;
     }
-    
+
     @Override
     public String getAuthor() {
         return author;
     }
 
     public void setAuthor(String author) {
-        if(author.trim().length()==0) {
+        if (author.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.author = author;
         }
     }
-    
+
     @Override
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
-        if(title.trim().length()==0) {
+        if (title.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.title = title;
         }
     }
@@ -110,10 +103,9 @@ public class Inproceedings implements Entry{
     }
 
     public void setBooktitle(String booktitle) {
-        if(booktitle.trim().length()==0) {
+        if (booktitle.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else{
+        } else {
             this.booktitle = booktitle;
         }
     }
@@ -124,10 +116,9 @@ public class Inproceedings implements Entry{
     }
 
     public void setYear(String year) {
-        if(year.trim().length()==0) {
+        if (year.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.year = year;
         }
     }
@@ -162,14 +153,6 @@ public class Inproceedings implements Entry{
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getEdition() {
-        return edition;
-    }
-
-    public void setEdition(String edition) {
-        this.edition = edition;
     }
 
     public String getMonth() {
@@ -211,7 +194,7 @@ public class Inproceedings implements Entry{
     public void setKey(String key) {
         this.key = key;
     }
-    
+
     @Override
     public boolean isAuthentic() {
         return isAuthentic;

@@ -1,67 +1,100 @@
-<easyb time='Mon Apr 18 14:59:45 EEST 2016' totalbehaviors='10' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='1986'>
-  <stories scenarios='10' failedscenarios='0' pendingscenarios='0' executionTime='1986'>
-    <story name='inproceedingsin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='1173'>
+<easyb time='Mon Apr 18 19:31:45 EEST 2016' totalbehaviors='15' totalfailedbehaviors='0' totalpendingbehaviors='0' executionTime='2664'>
+  <stories scenarios='15' failedscenarios='0' pendingscenarios='0' executionTime='2664'>
+    <story name='inproceedingsin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='1323'>
       <description name='Käyttäjä voi lisätä inproceedings-viitteen' />
-      <scenario name='Käyttäjä voi lisätä oikeellisen inproceedings-viitteen' result='success' executionTime='525'>
+      <scenario name='Käyttäjä voi lisätä oikeellisen inproceedings-viitteen' result='success' executionTime='657'>
         <given name='lisäys on auki' result='success' />
         <when name='lisätään lomakkeeseen tiedot' result='success' />
         <then name='inproceedings-viite luodaan' result='success' />
       </scenario>
-      <scenario name='Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä' result='success' executionTime='78'>
+      <scenario name='Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä' result='success' executionTime='89'>
         <given name='lisäys on auki' result='success' />
         <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
         <then name='viite luodaan' result='success' />
       </scenario>
     </story>
-    <story name='bookin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='255'>
-      <description name='Käyttäjänä pystyn lisäämään book-viitteen' />
-      <scenario name='Käyttäjä voi lisätä oikeellisen viitteen' result='success' executionTime='78'>
-        <given name='book lisäys on auki' result='success' />
-        <when name='lisätään lomakkeeseen tiedot' result='success' />
-        <then name='book-viite luodaan' result='success' />
-      </scenario>
-      <scenario name='Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä' result='success' executionTime='67'>
-        <given name='lisäys on auki' result='success' />
-        <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
-        <then name='viite luodaan' result='success' />
-      </scenario>
-    </story>
-    <story name='virheviestin_nakyminen' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='176'>
-      <description name='Virheviesti ilmoittaa kenttien oikeellisuudesta' />
-      <scenario name='Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä' result='success' executionTime='61'>
-        <given name='lisäys on auki' result='success' />
-        <when name='Jätetään pakollisia kenttiä täyttämättä' result='success' />
-        <then name='viite luodaan' result='success' />
-      </scenario>
-      <scenario name='Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty' result='success' executionTime='54'>
-        <given name='lisäys on auki' result='success' />
-        <when name='Jätetään pakollisia kenttiä täyttämättä' result='success' />
-        <then name='viite luodaan' result='success' />
-      </scenario>
-    </story>
-    <story name='artikkelin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='179'>
+    <story name='artikkelin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='250'>
       <description name='Käyttäjä voi lisätä artikkeliviitteen' />
-      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='62'>
+      <scenario name='käyttäjä voi lisätä kunnollisen viitteen' result='success' executionTime='90'>
         <given name='lisäys on auki' result='success' />
         <when name='lisätään lomakkeeseen tiedot' result='success' />
         <then name='viite luodaan' result='success' />
       </scenario>
-      <scenario name='Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä' result='success' executionTime='52'>
+      <scenario name='Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä' result='success' executionTime='72'>
         <given name='lisäys on auki' result='success' />
         <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
         <then name='viite luodaan' result='success' />
       </scenario>
     </story>
-    <story name='viitteen_lisaaminen_paivittaa_listan' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='203'>
+    <story name='viitteen_lisaaminen_paivittaa_listan' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='246'>
       <description name='Käyttäjä näkee viitteen listassa lisäämisen jälkeen' />
-      <scenario name='Käyttäjä näkee viitteen lisättyään oikeellisen viitteen' result='success' executionTime='72'>
+      <scenario name='Käyttäjä näkee viitteen lisättyään oikeellisen viitteen' result='success' executionTime='104'>
         <given name='lisäys on auki' result='success' />
         <when name='lisätään lomakkeeseen tiedot ja submitataan' result='success' />
         <then name='viite luodaan ja se on näkymässä' result='success' />
       </scenario>
-      <scenario name='Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä' result='success' executionTime='64'>
+      <scenario name='Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä' result='success' executionTime='60'>
         <given name='lisäys on auki' result='success' />
         <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+    <story name='bibtexin_luonti' scenarios='5' failedscenarios='0' pendingscenarios='0' executionTime='548'>
+      <description name='Käyttäjänä pystyn generoimaan toimivan bibtex-tiedoston' />
+      <scenario name='Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä article-viitteestä' result='success' executionTime='58'>
+        <given name='lisäysikkuna on auki' result='success' />
+        <given name='oikeellinen article-viite lisätään' result='success' />
+        <when name='bibtex-tiedosto luodaan' result='success' />
+        <then name='kaikki löytyy bibtex-tiedostosta' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä book-viitteestä' result='success' executionTime='58'>
+        <given name='lisäysikkuna on auki' result='success' />
+        <given name='oikeellinen book-viite lisätään' result='success' />
+        <when name='bibtex-tiedosto luodaan' result='success' />
+        <then name='kaikki löytyy bibtex-tiedostosta' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä inproceedings-viitteestä' result='success' executionTime='43'>
+        <given name='lisäysikkuna on auki' result='success' />
+        <given name='oikeellinen inproceedings-viite lisätään' result='success' />
+        <when name='bibtex-tiedosto luodaan' result='success' />
+        <then name='kaikki löytyy bibtex-tiedostosta' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article-viitteestä' result='success' executionTime='41'>
+        <given name='lisäysikkuna on auki' result='success' />
+        <given name='kaksi article-viitettä lisätään' result='success' />
+        <when name='bibtex-tiedosto luodaan' result='success' />
+        <then name='kummatkin artikkeliviitteet löytyvät bibtex-tiedostosta' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta eri viitetyypistä' result='success' executionTime='42'>
+        <given name='lisäysikkuna on auki' result='success' />
+        <given name='inproceedings-, book- ja article-viitteet lisätään' result='success' />
+        <when name='bibtex-tiedosto luodaan' result='success' />
+        <then name='book- ja article-viitteet löytyvät bibtex-tiedostosta' result='success' />
+      </scenario>
+    </story>
+    <story name='bookin_luonti' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='145'>
+      <description name='Käyttäjänä pystyn lisäämään book-viitteen' />
+      <scenario name='Käyttäjä voi lisätä oikeellisen viitteen' result='success' executionTime='48'>
+        <given name='book lisäys on auki' result='success' />
+        <when name='lisätään lomakkeeseen tiedot' result='success' />
+        <then name='book-viite luodaan' result='success' />
+      </scenario>
+      <scenario name='Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä' result='success' executionTime='39'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään vaadittavia kenttiä tyhjiksi' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+    </story>
+    <story name='virheviestin_nakyminen' scenarios='2' failedscenarios='0' pendingscenarios='0' executionTime='152'>
+      <description name='Virheviesti ilmoittaa kenttien oikeellisuudesta' />
+      <scenario name='Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä' result='success' executionTime='47'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään pakollisia kenttiä täyttämättä' result='success' />
+        <then name='viite luodaan' result='success' />
+      </scenario>
+      <scenario name='Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty' result='success' executionTime='46'>
+        <given name='lisäys on auki' result='success' />
+        <when name='Jätetään pakollisia kenttiä täyttämättä' result='success' />
         <then name='viite luodaan' result='success' />
       </scenario>
     </story>

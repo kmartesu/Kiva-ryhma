@@ -1,4 +1,4 @@
-<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.255' name='behavior.bookin_luonti'>
-  <testcase classname='behavior.bookin_luonti' name='Käyttäjä voi lisätä oikeellisen viitteen' time='0.078' />
-  <testcase classname='behavior.bookin_luonti' name='Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä' time='0.067' />
+<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.145' name='behavior.bookin_luonti'>
+  <testcase classname='behavior.bookin_luonti' name='Käyttäjä voi lisätä oikeellisen viitteen' time='0.048' />
+  <testcase classname='behavior.bookin_luonti' name='Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä' time='0.039' />
 </testsuite>

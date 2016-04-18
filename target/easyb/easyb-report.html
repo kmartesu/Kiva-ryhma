@@ -66,10 +66,10 @@
             </thead>
             <tbody>
               <tr class='primaryRow'>
-                <td>10</td>
+                <td>15</td>
                 <td class=''>0</td>
                 <td class=''>0</td>
-                <td>1.986</td>
+                <td>2.664</td>
               </tr>
             </tbody>
           </table>
@@ -86,11 +86,11 @@
             </thead>
             <tbody>
               <tr class='primaryRow'>
-                <td>5</td>
-                <td>10</td>
+                <td>6</td>
+                <td>15</td>
                 <td class=''>0</td>
                 <td class=''>0</td>
-                <td>1.986</td>
+                <td>2.664</td>
               </tr>
             </tbody>
           </table>
@@ -139,7 +139,7 @@
         <td>2</td>
         <td class=''>0</td>
         <td class=''>0</td>
-        <td>1.173</td>
+        <td>1.323</td>
       </tr>
 
        
@@ -151,7 +151,7 @@
               <tr class='primaryScenarioRow'>
                 <td title='Scenario'>Käyttäjä voi lisätä oikeellisen inproceedings-viitteen</td>
                 <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.525</td>
+                <td title='Time (sec)'>0.657</td>
               </tr>
               
               <tr class='scenarioComponents'>
@@ -182,7 +182,7 @@
               <tr class='secondaryScenarioRow'>
                 <td title='Scenario'>Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä</td>
                 <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.078</td>
+                <td title='Time (sec)'>0.089</td>
               </tr>
               
               <tr class='scenarioComponents'>
@@ -219,13 +219,13 @@
       <tr class='secondaryRow'>
         <td>
          
-          <a href="#" onclick="$('scenarios_for_story_' + 1).toggle(); return false;">bookin_luonti</a>
+          <a href="#" onclick="$('scenarios_for_story_' + 1).toggle(); return false;">artikkelin_luonti</a>
          
         </td>
         <td>2</td>
         <td class=''>0</td>
         <td class=''>0</td>
-        <td>0.255</td>
+        <td>0.25</td>
       </tr>
 
        
@@ -235,181 +235,9 @@
             <tbody>
               
               <tr class='primaryScenarioRow'>
-                <td title='Scenario'>Käyttäjä voi lisätä oikeellisen viitteen</td>
-                <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.078</td>
-              </tr>
-              
-              <tr class='scenarioComponents'>
-                <td>given book lisäys on auki</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>when lisätään lomakkeeseen tiedot</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>then book-viite luodaan</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-          
-              <tr class='secondaryScenarioRow'>
-                <td title='Scenario'>Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä</td>
-                <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.067</td>
-              </tr>
-              
-              <tr class='scenarioComponents'>
-                <td>given lisäys on auki</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>when Jätetään vaadittavia kenttiä tyhjiksi</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>then viite luodaan</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-          
-            </tbody>
-          </table>
-        </td>
-      </tr>
-        
-      
-      <tr class='primaryRow'>
-        <td>
-         
-          <a href="#" onclick="$('scenarios_for_story_' + 2).toggle(); return false;">virheviestin_nakyminen</a>
-         
-        </td>
-        <td>2</td>
-        <td class=''>0</td>
-        <td class=''>0</td>
-        <td>0.176</td>
-      </tr>
-
-       
-      <tr id='scenarios_for_story_2' class='scenariosForStory' style='display:none;'>
-        <td colspan='5'>
-          <table class='scenariosForStoriesTable'>
-            <tbody>
-              
-              <tr class='primaryScenarioRow'>
-                <td title='Scenario'>Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä</td>
-                <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.061</td>
-              </tr>
-              
-              <tr class='scenarioComponents'>
-                <td>given lisäys on auki</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>when Jätetään pakollisia kenttiä täyttämättä</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>then viite luodaan</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-          
-              <tr class='secondaryScenarioRow'>
-                <td title='Scenario'>Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty</td>
-                <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.054</td>
-              </tr>
-              
-              <tr class='scenarioComponents'>
-                <td>given lisäys on auki</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>when Jätetään pakollisia kenttiä täyttämättä</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-              <tr class='scenarioComponents'>
-                <td>then viite luodaan</td>
-                <td class='stepResultSuccess'>success</td>
-                <td />
-              </tr>
-              
-              
-            
-          
-            </tbody>
-          </table>
-        </td>
-      </tr>
-        
-      
-      <tr class='secondaryRow'>
-        <td>
-         
-          <a href="#" onclick="$('scenarios_for_story_' + 3).toggle(); return false;">artikkelin_luonti</a>
-         
-        </td>
-        <td>2</td>
-        <td class=''>0</td>
-        <td class=''>0</td>
-        <td>0.179</td>
-      </tr>
-
-       
-      <tr id='scenarios_for_story_3' class='scenariosForStory' style='display:none;'>
-        <td colspan='5'>
-          <table class='scenariosForStoriesTable'>
-            <tbody>
-              
-              <tr class='primaryScenarioRow'>
                 <td title='Scenario'>käyttäjä voi lisätä kunnollisen viitteen</td>
                 <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.062</td>
+                <td title='Time (sec)'>0.09</td>
               </tr>
               
               <tr class='scenarioComponents'>
@@ -440,7 +268,7 @@
               <tr class='secondaryScenarioRow'>
                 <td title='Scenario'>Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä</td>
                 <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.052</td>
+                <td title='Time (sec)'>0.072</td>
               </tr>
               
               <tr class='scenarioComponents'>
@@ -477,17 +305,17 @@
       <tr class='primaryRow'>
         <td>
          
-          <a href="#" onclick="$('scenarios_for_story_' + 4).toggle(); return false;">viitteen_lisaaminen_paivittaa_listan</a>
+          <a href="#" onclick="$('scenarios_for_story_' + 2).toggle(); return false;">viitteen_lisaaminen_paivittaa_listan</a>
          
         </td>
         <td>2</td>
         <td class=''>0</td>
         <td class=''>0</td>
-        <td>0.203</td>
+        <td>0.246</td>
       </tr>
 
        
-      <tr id='scenarios_for_story_4' class='scenariosForStory' style='display:none;'>
+      <tr id='scenarios_for_story_2' class='scenariosForStory' style='display:none;'>
         <td colspan='5'>
           <table class='scenariosForStoriesTable'>
             <tbody>
@@ -495,7 +323,7 @@
               <tr class='primaryScenarioRow'>
                 <td title='Scenario'>Käyttäjä näkee viitteen lisättyään oikeellisen viitteen</td>
                 <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.072</td>
+                <td title='Time (sec)'>0.104</td>
               </tr>
               
               <tr class='scenarioComponents'>
@@ -526,7 +354,7 @@
               <tr class='secondaryScenarioRow'>
                 <td title='Scenario'>Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä</td>
                 <td title='Result' class='stepResultSuccess'>success</td>
-                <td title='Time (sec)'>0.064</td>
+                <td title='Time (sec)'>0.06</td>
               </tr>
               
               <tr class='scenarioComponents'>
@@ -560,6 +388,397 @@
       </tr>
         
       
+      <tr class='secondaryRow'>
+        <td>
+         
+          <a href="#" onclick="$('scenarios_for_story_' + 3).toggle(); return false;">bibtexin_luonti</a>
+         
+        </td>
+        <td>5</td>
+        <td class=''>0</td>
+        <td class=''>0</td>
+        <td>0.548</td>
+      </tr>
+
+       
+      <tr id='scenarios_for_story_3' class='scenariosForStory' style='display:none;'>
+        <td colspan='5'>
+          <table class='scenariosForStoriesTable'>
+            <tbody>
+              
+              <tr class='primaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä article-viitteestä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.058</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäysikkuna on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>given oikeellinen article-viite lisätään</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when bibtex-tiedosto luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then kaikki löytyy bibtex-tiedostosta</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+              <tr class='secondaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä book-viitteestä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.058</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäysikkuna on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>given oikeellinen book-viite lisätään</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when bibtex-tiedosto luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then kaikki löytyy bibtex-tiedostosta</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+              <tr class='primaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä inproceedings-viitteestä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.043</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäysikkuna on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>given oikeellinen inproceedings-viite lisätään</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when bibtex-tiedosto luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then kaikki löytyy bibtex-tiedostosta</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+              <tr class='secondaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article-viitteestä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.041</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäysikkuna on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>given kaksi article-viitettä lisätään</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when bibtex-tiedosto luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then kummatkin artikkeliviitteet löytyvät bibtex-tiedostosta</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+              <tr class='primaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta eri viitetyypistä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.042</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäysikkuna on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>given inproceedings-, book- ja article-viitteet lisätään</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when bibtex-tiedosto luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then book- ja article-viitteet löytyvät bibtex-tiedostosta</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+            </tbody>
+          </table>
+        </td>
+      </tr>
+        
+      
+      <tr class='primaryRow'>
+        <td>
+         
+          <a href="#" onclick="$('scenarios_for_story_' + 4).toggle(); return false;">bookin_luonti</a>
+         
+        </td>
+        <td>2</td>
+        <td class=''>0</td>
+        <td class=''>0</td>
+        <td>0.145</td>
+      </tr>
+
+       
+      <tr id='scenarios_for_story_4' class='scenariosForStory' style='display:none;'>
+        <td colspan='5'>
+          <table class='scenariosForStoriesTable'>
+            <tbody>
+              
+              <tr class='primaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä voi lisätä oikeellisen viitteen</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.048</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given book lisäys on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when lisätään lomakkeeseen tiedot</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then book-viite luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+              <tr class='secondaryScenarioRow'>
+                <td title='Scenario'>Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.039</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäys on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when Jätetään vaadittavia kenttiä tyhjiksi</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then viite luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+            </tbody>
+          </table>
+        </td>
+      </tr>
+        
+      
+      <tr class='secondaryRow'>
+        <td>
+         
+          <a href="#" onclick="$('scenarios_for_story_' + 5).toggle(); return false;">virheviestin_nakyminen</a>
+         
+        </td>
+        <td>2</td>
+        <td class=''>0</td>
+        <td class=''>0</td>
+        <td>0.152</td>
+      </tr>
+
+       
+      <tr id='scenarios_for_story_5' class='scenariosForStory' style='display:none;'>
+        <td colspan='5'>
+          <table class='scenariosForStoriesTable'>
+            <tbody>
+              
+              <tr class='primaryScenarioRow'>
+                <td title='Scenario'>Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.047</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäys on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when Jätetään pakollisia kenttiä täyttämättä</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then viite luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+              <tr class='secondaryScenarioRow'>
+                <td title='Scenario'>Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty</td>
+                <td title='Result' class='stepResultSuccess'>success</td>
+                <td title='Time (sec)'>0.046</td>
+              </tr>
+              
+              <tr class='scenarioComponents'>
+                <td>given lisäys on auki</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>when Jätetään pakollisia kenttiä täyttämättä</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+              <tr class='scenarioComponents'>
+                <td>then viite luodaan</td>
+                <td class='stepResultSuccess'>success</td>
+                <td />
+              </tr>
+              
+              
+            
+          
+            </tbody>
+          </table>
+        </td>
+      </tr>
+        
+      
     </tbody>
   </table>
 </div>
@@ -568,8 +787,8 @@
 <div id='StoriesListPlain' style='display:none;'>
   <h2>Stories Text</h2>
   
-  <div>10 scenarios executed successfully.</div>
-  <div><br/><br/>&nbsp;&nbsp;Story: inproceedingsin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjä voi lisätä inproceedings-viitteen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi lisätä oikeellisen inproceedings-viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then inproceedings-viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: bookin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjänä pystyn lisäämään book-viitteen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi lisätä oikeellisen viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given book lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then book-viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: virheviestin_nakyminen<br/><br/>&nbsp;&nbsp;&nbsp;Virheviesti ilmoittaa kenttien oikeellisuudesta<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään pakollisia kenttiä täyttämättä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään pakollisia kenttiä täyttämättä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: artikkelin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjä voi lisätä artikkeliviitteen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario käyttäjä voi lisätä kunnollisen viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: viitteen_lisaaminen_paivittaa_listan<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjä näkee viitteen listassa lisäämisen jälkeen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä näkee viitteen lisättyään oikeellisen viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot ja submitataan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan ja se on näkymässä<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan</div>
+  <div>15 scenarios executed successfully.</div>
+  <div><br/><br/>&nbsp;&nbsp;Story: inproceedingsin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjä voi lisätä inproceedings-viitteen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi lisätä oikeellisen inproceedings-viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then inproceedings-viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: artikkelin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjä voi lisätä artikkeliviitteen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario käyttäjä voi lisätä kunnollisen viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei voi lisätä viitettä tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: viitteen_lisaaminen_paivittaa_listan<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjä näkee viitteen listassa lisäämisen jälkeen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä näkee viitteen lisättyään oikeellisen viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot ja submitataan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan ja se on näkymässä<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei näe lisättyä viitettä, joka lisätään tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: bibtexin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjänä pystyn generoimaan toimivan bibtex-tiedoston<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä article-viitteestä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäysikkuna on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given oikeellinen article-viite lisätään<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when bibtex-tiedosto luodaan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then kaikki löytyy bibtex-tiedostosta<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä book-viitteestä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäysikkuna on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given oikeellinen book-viite lisätään<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when bibtex-tiedosto luodaan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then kaikki löytyy bibtex-tiedostosta<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä inproceedings-viitteestä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäysikkuna on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given oikeellinen inproceedings-viite lisätään<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when bibtex-tiedosto luodaan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then kaikki löytyy bibtex-tiedostosta<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article-viitteestä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäysikkuna on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given kaksi article-viitettä lisätään<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when bibtex-tiedosto luodaan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then kummatkin artikkeliviitteet löytyvät bibtex-tiedostosta<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta eri viitetyypistä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäysikkuna on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given inproceedings-, book- ja article-viitteet lisätään<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when bibtex-tiedosto luodaan<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then book- ja article-viitteet löytyvät bibtex-tiedostosta<br/><br/>&nbsp;&nbsp;Story: bookin_luonti<br/><br/>&nbsp;&nbsp;&nbsp;Käyttäjänä pystyn lisäämään book-viitteen<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä voi lisätä oikeellisen viitteen<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given book lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when lisätään lomakkeeseen tiedot<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then book-viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Käyttäjä ei voi lisätä book-viitteen tyhjillä pakollisilla kentillä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään vaadittavia kenttiä tyhjiksi<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;Story: virheviestin_nakyminen<br/><br/>&nbsp;&nbsp;&nbsp;Virheviesti ilmoittaa kenttien oikeellisuudesta<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Virheviesti näkyy tyhjillä pakollisilla kentillä lisätessä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään pakollisia kenttiä täyttämättä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;scenario Virheviesti on tyhjä, kun kaikki pakolliset kentät täytetty<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;given lisäys on auki<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when Jätetään pakollisia kenttiä täyttämättä<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then viite luodaan</div>
 </div>
 
       </div>

@@ -36,7 +36,7 @@ public class InproceedingsTest {
         in.setAddress("address");
         in.setAuthor("author");
         in.setBooktitle("booktitle");
-        in.setEdition("edition");
+//        in.setEdition("edition");
         in.setEditor("editor");
         in.setKey("key");
         in.setMonth("month");
@@ -65,7 +65,7 @@ public class InproceedingsTest {
      */
     @Test
     public void testToBibtex() {
-        String test = "@inproceedings{key,\nauthor = {author},\ntitle = {title},\npublisher = {publisher},\nvolume = {volume},\nseries = {series},\nyear = {year},\naddress = {address},\nedition = {edition},\nmonth = {month},\nnote = {note},\nkey = {key},\norganization = {organization},\n}\n";
+        String test = "@inproceedings{key,\nauthor = {author},\ntitle = {title},\npublisher = {publisher},\nvolume = {volume},\nseries = {series},\nyear = {year},\naddress = {address},\nmonth = {month},\nnote = {note},\nkey = {key},\norganization = {organization},\n}\n";
         assertEquals(test, in.toBibtex());
     }
 
@@ -234,20 +234,20 @@ public class InproceedingsTest {
     /**
      * Test of getEdition method, of class Inproceedings.
      */
-    @Test
-    public void testGetEdition() {
-       assertEquals("edition", in.getEdition());
-    }
+//    @Test
+//    public void testGetEdition() {
+//       assertEquals("edition", in.getEdition());
+//    }
 
     /**
      * Test of setEdition method, of class Inproceedings.
      */
-    @Test
-    public void testSetEdition() {
-        assertEquals("edition",in.getEdition());
-        in.setEdition("edition2");
-        assertEquals("edition2",in.getEdition());
-    }
+//    @Test
+//    public void testSetEdition() {
+//        assertEquals("edition",in.getEdition());
+//        in.setEdition("edition2");
+//        assertEquals("edition2",in.getEdition());
+//    }
 
     /**
      * Test of getMonth method, of class Inproceedings.

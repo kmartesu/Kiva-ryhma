@@ -33,24 +33,22 @@ public class Article implements Entry {
     }
 
     public void setAuthor(String author) {
-        if(author.trim().length()==0) {
+        if (author.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
-            this.author = author;    
+        } else {
+            this.author = author;
         }
     }
-    
+
     @Override
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
-        if(title.trim().length()==0) {
+        if (title.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.title = title;
         }
     }
@@ -60,10 +58,9 @@ public class Article implements Entry {
     }
 
     public void setJournal(String journal) {
-        if(journal.trim().length()==0) {
+        if (journal.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.journal = journal;
         }
     }
@@ -74,10 +71,9 @@ public class Article implements Entry {
     }
 
     public void setYear(String year) {
-        if(year.trim().length()==0) {
+        if (year.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.year = year;
         }
     }
@@ -87,10 +83,9 @@ public class Article implements Entry {
     }
 
     public void setVolume(String volume) {
-        if(volume.trim().length()==0){
+        if (volume.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.volume = volume;
         }
     }
@@ -134,7 +129,7 @@ public class Article implements Entry {
     public void setKey(String key) {
         this.key = key;
     }
-    
+
     @Override
     public boolean isAuthentic() {
         return isAuthentic;
@@ -146,22 +141,23 @@ public class Article implements Entry {
         StringBuilder sb = new StringBuilder();
         sb.append("@article{").append(this.key).append(",");
         sb.append("\nauthor = {").append(this.author).append("},");
+        sb.append("\njournal = {").append(this.journal).append("},");
         sb.append("\ntitle = {").append(this.title).append("},");
-        if (!this.journal.isEmpty()) {
-            sb.append("\njournal = {").append(this.journal).append("},");
-        }
-        if (!this.volume.isEmpty()) {
-            sb.append("\nvolume = {").append(this.volume).append("},");
-        }
+        sb.append("\nyear = {").append(this.year).append("},");
+        sb.append("\nvolume = {").append(this.volume).append("},");
         if (!this.number.isEmpty()) {
             sb.append("\nnumber = {").append(this.number).append("},");
-        }
-        if (!this.year.isEmpty()) {
-            sb.append("\nyear = {").append(this.year).append("},");
         }
         if (!this.pages.isEmpty()) {
             sb.append("\npages = {").append(this.pages).append("},");
         }
+        if (!this.month.isEmpty()) {
+            sb.append("\nmonth = {").append(this.month).append("},");
+        }
+        if (!this.note.isEmpty()) {
+            sb.append("\nnote = {").append(this.note).append("},");
+        }
+
         sb.append("\n}\n");
         //publisher, address?
         return sb.toString();

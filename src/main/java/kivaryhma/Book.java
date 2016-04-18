@@ -9,7 +9,8 @@ package kivaryhma;
  *
  * @author Jonas
  */
-public class Book implements Entry{
+public class Book implements Entry {
+
     private String author;
     private String title;
     private String publisher;
@@ -22,8 +23,7 @@ public class Book implements Entry{
     private String note;
     private String key;
     private boolean isAuthentic = true;
-    
-    
+
     @Override
     public String toBibtex() {
         StringBuilder sb = new StringBuilder();
@@ -54,9 +54,6 @@ public class Book implements Entry{
         if (!this.note.isEmpty()) {
             sb.append("\nnote = {").append(this.note).append("},");
         }
-        if (!this.key.isEmpty()) {
-            sb.append("\nkey = {").append(this.key).append("},");
-        }
         sb.append("\n}\n");
         //publisher, address?
         return sb.toString();
@@ -67,10 +64,9 @@ public class Book implements Entry{
     }
 
     public void setPublisher(String publisher) {
-        if(publisher.trim().length()==0) {
+        if (publisher.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.publisher = publisher;
         }
     }
@@ -137,10 +133,9 @@ public class Book implements Entry{
     }
 
     public void setAuthor(String author) {
-        if(author.trim().length()==0) {
+        if (author.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.author = author;
         }
     }
@@ -151,10 +146,9 @@ public class Book implements Entry{
     }
 
     public void setTitle(String title) {
-        if(title.trim().length()==0) {
+        if (title.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.title = title;
         }
     }
@@ -165,14 +159,13 @@ public class Book implements Entry{
     }
 
     public void setYear(String year) {
-        if(year.trim().length()==0) {
+        if (year.trim().length() == 0) {
             isAuthentic = false;
-        }
-        else {
+        } else {
             this.year = year;
         }
     }
-    
+
     @Override
     public boolean isAuthentic() {
         return isAuthentic;

@@ -17,18 +17,20 @@ import static org.junit.Assert.*;
  * @author hyttijan
  */
 public class ArticleTest {
-        Article article;
+
+    Article article;
+
     public ArticleTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         article = new Article();
@@ -42,9 +44,9 @@ public class ArticleTest {
         article.setTitle("title");
         article.setMonth("month");
         article.setNumber("number");
-        
+
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -54,7 +56,7 @@ public class ArticleTest {
      */
     @Test
     public void testGetAuthor() {
-       assertEquals("author",article.getAuthor());
+        assertEquals("author", article.getAuthor());
     }
 
     /**
@@ -62,10 +64,10 @@ public class ArticleTest {
      */
     @Test
     public void testSetAuthor() {
-        
-        assertEquals("author",article.getAuthor());
+
+        assertEquals("author", article.getAuthor());
         article.setAuthor("author2");
-        assertEquals("author2",article.getAuthor());
+        assertEquals("author2", article.getAuthor());
     }
 
     /**
@@ -73,8 +75,8 @@ public class ArticleTest {
      */
     @Test
     public void testGetTitle() {
-        assertEquals("title",article.getTitle());
-      
+        assertEquals("title", article.getTitle());
+
     }
 
     /**
@@ -82,9 +84,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetTitle() {
-        assertEquals("title",article.getTitle());
+        assertEquals("title", article.getTitle());
         article.setTitle("title2");
-        assertEquals("title2",article.getTitle());
+        assertEquals("title2", article.getTitle());
     }
 
     /**
@@ -92,10 +94,9 @@ public class ArticleTest {
      */
     @Test
     public void testGetJournal() {
-        
-        
-        assertEquals("journal",article.getJournal());
-        
+
+        assertEquals("journal", article.getJournal());
+
     }
 
     /**
@@ -103,9 +104,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetJournal() {
-        assertEquals("journal",article.getJournal());
+        assertEquals("journal", article.getJournal());
         article.setJournal("journal2");
-        assertEquals("journal2",article.getJournal());
+        assertEquals("journal2", article.getJournal());
 
     }
 
@@ -114,7 +115,7 @@ public class ArticleTest {
      */
     @Test
     public void testGetYear() {
-        assertEquals("year",article.getYear());
+        assertEquals("year", article.getYear());
     }
 
     /**
@@ -122,9 +123,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetYear() {
-        assertEquals("year",article.getYear());
+        assertEquals("year", article.getYear());
         article.setYear("year2");
-        assertEquals("year2",article.getYear());
+        assertEquals("year2", article.getYear());
     }
 
     /**
@@ -132,7 +133,7 @@ public class ArticleTest {
      */
     @Test
     public void testGetVolume() {
-       assertEquals("volume",article.getVolume());
+        assertEquals("volume", article.getVolume());
     }
 
     /**
@@ -140,9 +141,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetVolume() {
-       assertEquals("volume",article.getVolume());
-       article.setVolume("volume2");
-       assertEquals("volume2",article.getVolume());
+        assertEquals("volume", article.getVolume());
+        article.setVolume("volume2");
+        assertEquals("volume2", article.getVolume());
     }
 
     /**
@@ -150,7 +151,7 @@ public class ArticleTest {
      */
     @Test
     public void testGetNumber() {
-        assertEquals("number",article.getNumber());
+        assertEquals("number", article.getNumber());
     }
 
     /**
@@ -158,9 +159,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetNumber() {
-        assertEquals("number",article.getNumber());
+        assertEquals("number", article.getNumber());
         article.setNumber("number2");
-        assertEquals("number2",article.getNumber());
+        assertEquals("number2", article.getNumber());
     }
 
     /**
@@ -168,7 +169,7 @@ public class ArticleTest {
      */
     @Test
     public void testGetPages() {
-       assertEquals("pages",article.getPages());
+        assertEquals("pages", article.getPages());
     }
 
     /**
@@ -176,9 +177,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetPages() {
-        assertEquals("pages",article.getPages());
+        assertEquals("pages", article.getPages());
         article.setPages("pages2");
-        assertEquals("pages2",article.getPages());
+        assertEquals("pages2", article.getPages());
     }
 
     /**
@@ -186,7 +187,7 @@ public class ArticleTest {
      */
     @Test
     public void testGetMonth() {
-        assertEquals("month",article.getMonth());
+        assertEquals("month", article.getMonth());
     }
 
     /**
@@ -194,9 +195,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetMonth() {
-       assertEquals("month",article.getMonth());
-       article.setMonth("month2");
-       assertEquals("month2",article.getMonth());
+        assertEquals("month", article.getMonth());
+        article.setMonth("month2");
+        assertEquals("month2", article.getMonth());
     }
 
     /**
@@ -204,8 +205,8 @@ public class ArticleTest {
      */
     @Test
     public void testGetNote() {
-        assertEquals("note",article.getNote());
-        
+        assertEquals("note", article.getNote());
+
     }
 
     /**
@@ -213,9 +214,9 @@ public class ArticleTest {
      */
     @Test
     public void testSetNote() {
-        assertEquals("note",article.getNote());
+        assertEquals("note", article.getNote());
         article.setNote("note2");
-        assertEquals("note2",article.getNote());
+        assertEquals("note2", article.getNote());
     }
 
     /**
@@ -223,8 +224,8 @@ public class ArticleTest {
      */
     @Test
     public void testGetKey() {
-        assertEquals("key",article.getKey());
-        
+        assertEquals("key", article.getKey());
+
     }
 
     /**
@@ -232,16 +233,17 @@ public class ArticleTest {
      */
     @Test
     public void testSetKey() {
-        assertEquals("key",article.getKey());
+        assertEquals("key", article.getKey());
         article.setKey("key2");
-        assertEquals("key2",article.getKey());
+        assertEquals("key2", article.getKey());
     }
-    
+
     @Test
-    public void testToBibtex(){
+    public void testToBibtex() {
         System.out.println(article.toBibtex());
-        String test = "@article{key,\nauthor = {author},\ntitle = {title},\njournal = {journal},\nvolume = {volume},\nnumber = {number},\nyear = {year},\npages = {pages},\n}\n"; 
+//        String test = "@article{key,\nauthor = {author},\ntitle = {title},\njournal = {journal},\nvolume = {volume},\nnumber = {number},\nyear = {year},\npages = {pages},\n}\n"; 
+        String test = "@article{key,\nauthor = {author},\njournal = {journal},\ntitle = {title},\nyear = {year},\nvolume = {volume},\nnumber = {number},\npages = {pages},\nmonth = {month},\nnote = {note},\n}\n";
         assertEquals(test, article.toBibtex());
     }
-    
+
 }

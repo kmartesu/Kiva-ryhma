@@ -61,7 +61,7 @@ public class BookTest {
      */
     @Test
     public void testToBibtex() {
-        String test = "@book{key,\nauthor = {author},\ntitle = {title},\npublisher = {publisher},\nvolume = {volume},\nseries = {series},\nyear = {year},\naddress = {address},\nedition = {edition},\nmonth = {month},\nnote = {note},\nkey = {key},\n}\n"; 
+        String test = "@book{key,\nauthor = {author},\ntitle = {title},\npublisher = {publisher},\nvolume = {volume},\nseries = {series},\nyear = {year},\naddress = {address},\nedition = {edition},\nmonth = {month},\nnote = {note},\n}\n"; 
         assertEquals(test, book.toBibtex());
     }
 
