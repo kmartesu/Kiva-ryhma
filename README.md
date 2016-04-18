@@ -7,4 +7,4 @@ Ohtu 2016 miniprojekti
 
 [Product Backlog](https://docs.google.com/spreadsheets/d/17cuWSJdrXupCiSLn5XclZlMT1ibx3-jwUHZeIaH46WQ/edit#gid=0)
 
-[Sprint Backlog](https://docs.google.com/spreadsheets/d/17cuWSJdrXupCiSLn5XclZlMT1ibx3-jwUHZeIaH46WQ/edit#gid=39650949)
+[Sprint Backlog](https://docs.google.com/spreadsheets/d/17cuWSJdrXupCiSLn5XclZlMT1ibx3-jwUHZeIaH46WQ/edit#gid=902560054)
