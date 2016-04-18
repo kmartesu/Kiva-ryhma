@@ -4,16 +4,22 @@
  * and open the template in the editor.
  */
 package kivaryhma;
-
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author hyttijan
@@ -51,6 +57,8 @@ public class FormTest {
     
     @After
     public void tearDown() {
+        File delete = new File("testi.bib");
+        delete.delete();
     }
 
     /**
@@ -124,6 +132,56 @@ public class FormTest {
         for(int i=0;i<form.getArticleFields().length;i++){
             assertEquals(form.getArticleFields()[i].getText(),"");
         }
+    }
+    public class Apu extends Thread{
+        private Form form;
+        public Apu(Form form){
+            this.form = form;
+        }
+        
+        @Override
+        public void run(){
+            try{
+                Robot robot = new Robot();
+                robot.delay(500);
+                robot.keyPress(KeyEvent.VK_ENTER);
+            } catch (AWTException ex) {
+                Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+
+        
+    }
+    @Test
+    public void testBibtex(){
+       
+        form.submitArticleForm();
+        this.form.getFileChooser().setSelectedFile(new File("testi"));
+         Apu apu = new Apu(this.form);
+         apu.start();
+        this.form.getJButton1().doClick();
+        assertTrue(new File("testi.bib").exists());
+       
+        
+    }
+    public void traverse(JPanel c){
+        for(int i=0;i<c.getComponentCount();i++){
+          
+            if(c.getComponent(i) instanceof JButton){
+               JButton btn = (JButton)c.getComponent(i);
+               System.out.println(btn.getText());
+               if(btn.getText()!=null&&btn.getText().equals("Save")){
+            
+                   btn.doClick();
+               }
+            }
+            else if(c.getComponent(i) instanceof JPanel){
+                traverse((JPanel)c.getComponent(i));
+            }
+        }
+         
+        
     }
     
 }

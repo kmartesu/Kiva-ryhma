@@ -7,6 +7,7 @@ package kivaryhma;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,7 +33,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private JTextField[] articleFields = new JTextField[10];
     private JTextField[] bookFields = new JTextField[11];
     private JTextField[] inproceedingsFields = new JTextField[14];
-
+    private JFileChooser fileChooser = new JFileChooser();
     /**
      * Creates new form Frame2
      */
@@ -67,8 +68,26 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         //lähetetään kontrollerimetodille tavarat inproceedings formista
         controller.sendInproceedingsFormParameters(gatherValues(inproceedingsFields));
     }
-    
-    
+    public void saveToFile(){
+        
+        try {
+             ArrayList<Entry> entries = new ArrayList<Entry>(controller.getEntries());
+            this.fileChooser.setCurrentDirectory(new File("."));
+            int retrieval = this.fileChooser.showSaveDialog(rootPane);
+            
+            if(retrieval== JFileChooser.APPROVE_OPTION){
+                PrintWriter writer = null;
+                writer = new PrintWriter(fileChooser.getSelectedFile()+".bib");
+                for (Entry entry : entries) {
+                    writer.println(entry.toBibtex());
+                }
+                writer.close();
+            }
+             
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
+        }
+    } 
     //Kerätään arvot tekstikentistä
     public String[] gatherValues(JTextField[] fields) {
         String[] values = new String[fields.length];
@@ -670,31 +689,14 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public JButton getJButton1(){
-        return this.jButton1;
+    public JFileChooser getFileChooser(){
+        return this.fileChooser;
     }
     private void bibtexButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexButton
-        //Bibtex filu löytyy sit sieltä projektin juuresta.
-        //Tää kirjottaa täl hetkel aina vanhan päälle uuden.
-        PrintWriter writer = null;
-        try {
-            ArrayList<Entry> entries = new ArrayList<Entry>(controller.getEntries());
-            JFileChooser fileChooser = new JFileChooser();
-            int retrieval = fileChooser.showSaveDialog(rootPane);
-            if(retrieval== JFileChooser.APPROVE_OPTION){
-                writer = new PrintWriter(fileChooser.getSelectedFile()+".bib");
-                for (Entry entry : entries) {
-                    writer.println(entry.toBibtex());
-                }
-                writer.close();
-            }
-             
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
-        }
 
+        this.saveToFile();
     }//GEN-LAST:event_bibtexButton
-
+    
     private void articleTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articleTitleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_articleTitleActionPerformed
@@ -909,7 +911,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public JTextField[] getBookFields() {
         return bookFields;
     }
-    
+    public JButton getJButton1(){
+        return this.jButton1;
+    }
     public JTextField[] getInproceedingsFields() {
         return inproceedingsFields;
     }
