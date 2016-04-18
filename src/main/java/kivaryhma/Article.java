@@ -11,16 +11,16 @@ package kivaryhma;
  */
 public class Article implements Entry {
 
-    private String author;
-    private String title;
-    private String journal;
-    private String year;
-    private String volume;
-    private String number;
-    private String pages;
-    private String month;
-    private String note;
-    private String key;
+    private String author="";
+    private String title="";
+    private String journal="";
+    private String year="";
+    private String volume="";
+    private String number="";
+    private String pages="";
+    private String month="";
+    private String note="";
+    private String key="";
     private boolean isAuthentic = true;
 
     public Article() {
