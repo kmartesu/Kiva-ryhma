@@ -5,6 +5,11 @@
  */
 package kivaryhma;
 
+import kivaryhma.mvc.View;
+import kivaryhma.mvc.Model;
+import kivaryhma.mvc.Form;
+import kivaryhma.mvc.Controller;
+import kivaryhma.entries.Article;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
