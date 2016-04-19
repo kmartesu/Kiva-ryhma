@@ -24,9 +24,7 @@ public class CharacterEscaper {
         text = text.replace("Æ", "{\\AE}");
         text = text.replace("ø", "{\\o}");
         text = text.replace("Ø", "{\\O}");
-        
-        
-        
+        //Testikommentti
         return text;
         
     }
