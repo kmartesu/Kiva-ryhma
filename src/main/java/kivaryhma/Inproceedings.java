@@ -67,7 +67,7 @@ public class Inproceedings implements Entry{
             sb.append("\norganization = {").append(this.organization).append("},");
         }
         sb.append("\n}\n");
-        return sb.toString();
+        return CharacterEscaper.filter(sb.toString());
     }
 
     public String getPages() {
@@ -77,7 +77,7 @@ public class Inproceedings implements Entry{
     public void setPages(String pages) {
         this.pages = pages;
     }
-
+    //testikommentti
     @Override
     public String getAuthor() {
         return author;

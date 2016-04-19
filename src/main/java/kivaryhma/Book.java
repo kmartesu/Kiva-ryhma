@@ -56,7 +56,7 @@ public class Book implements Entry{
         }
         sb.append("\n}\n");
         //publisher, address?
-        return sb.toString();
+        return CharacterEscaper.filter(sb.toString());
     }
 
     public String getPublisher() {
