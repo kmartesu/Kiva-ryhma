@@ -2,6 +2,9 @@ import java.awt.Robot;
 import java.awt.AWTException;
 import java.awt.event.KeyEvent;
 import kivaryhma.*
+import kivaryhma.entries.*
+import kivaryhma.mvc.*
+import kivaryhma.services.*
 
 
 description 'Käyttäjänä pystyn tallentamaan tiedoston ja valitsemaan sille nimen'

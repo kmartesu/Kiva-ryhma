@@ -1,4 +1,7 @@
 import kivaryhma.*
+import kivaryhma.entries.*
+import kivaryhma.mvc.*
+import kivaryhma.services.*
 import gui.*;
 import java.awt.*;
 import java.awt.event.*;

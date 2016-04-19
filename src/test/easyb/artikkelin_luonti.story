@@ -1,4 +1,7 @@
 import kivaryhma.*
+import kivaryhma.entries.*
+import kivaryhma.mvc.*
+import kivaryhma.services.*
 
 description 'Käyttäjä voi lisätä artikkeliviitteen'
  scenario "käyttäjä voi lisätä kunnollisen viitteen", {
