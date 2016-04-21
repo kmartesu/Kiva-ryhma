@@ -81,7 +81,6 @@ public class Inproceedings implements Entry{
         this.pages = pages;
     }
     //testikommentti
-    @Override
     public String getAuthor() {
         return author;
     }
@@ -94,7 +93,6 @@ public class Inproceedings implements Entry{
         }
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
@@ -119,7 +117,6 @@ public class Inproceedings implements Entry{
         }
     }
 
-    @Override
     public String getYear() {
         return year;
     }

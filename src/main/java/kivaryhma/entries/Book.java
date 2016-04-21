@@ -128,7 +128,6 @@ public class Book implements Entry{
         this.key = key;
     }
 
-    @Override
     public String getAuthor() {
         return author;
     }
@@ -141,7 +140,6 @@ public class Book implements Entry{
         }
     }
 
-    @Override
     public String getTitle() {
         return title;
     }
@@ -154,7 +152,6 @@ public class Book implements Entry{
         }
     }
 
-    @Override
     public String getYear() {
         return year;
     }

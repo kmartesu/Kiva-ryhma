@@ -1,34 +1,30 @@
-package kivaryhma.entries;
-
-import kivaryhma.services.CharacterEscaper;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package kivaryhma.entries;
+
+import java.security.spec.ECField;
+import kivaryhma.services.CharacterEscaper;
+
 /**
  *
- * @author toffe
+ * @author Jonas
  */
-public class Article implements Entry {
-
-    private String author="";
-    private String title="";
-    private String journal="";
-    private String year="";
-    private String volume="";
-    private String number="";
-    private String pages="";
-    private String month="";
-    private String note="";
-    private String key="";
+public class Phdthesis implements Entry {
+    private String author = ""; 
+    private String title = ""; 
+    private String school = "";
+    private String year = "";
+    private String type = "";
+    private String address = ""; 
+    private String month = "";
+    private String note = "";
+    private String key = "";
     private boolean isAuthentic = true;
 
-    public Article() {
-        //Toistaiseksi kaikki arvot Stringejä
-    }
-
+    @Override
     public String getAuthor() {
         return author;
     }
@@ -41,6 +37,7 @@ public class Article implements Entry {
         }
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -53,18 +50,19 @@ public class Article implements Entry {
         }
     }
 
-    public String getJournal() {
-        return journal;
+    public String getSchool() {
+        return school;
     }
 
-    public void setJournal(String journal) {
-        if (journal.trim().length() == 0) {
+    public void setSchool(String school) {
+        if (school.trim().length() == 0) {
             isAuthentic = false;
         } else {
-            this.journal = journal;
+            this.school = school;
         }
     }
 
+    @Override
     public String getYear() {
         return year;
     }
@@ -77,32 +75,20 @@ public class Article implements Entry {
         }
     }
 
-    public String getVolume() {
-        return volume;
+    public String getType() {
+        return type;
     }
 
-    public void setVolume(String volume) {
-        if (volume.trim().length() == 0) {
-            isAuthentic = false;
-        } else {
-            this.volume = volume;
-        }
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public String getNumber() {
-        return number;
+    public String getAddress() {
+        return address;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getPages() {
-        return pages;
-    }
-
-    public void setPages(String pages) {
-        this.pages = pages;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getMonth() {
@@ -130,25 +116,22 @@ public class Article implements Entry {
     }
 
     @Override
-    public boolean isAuthentic() {
-        return isAuthentic;
-    }
-
-    @Override
     public String toBibtex() {
-        //Tähän vois varmaan keksii jonkun paremmankin ratkasun.
         StringBuilder sb = new StringBuilder();
-        sb.append("@article{").append(this.key).append(",");
+        sb.append("@phdthesis{").append(this.key).append(",");
         sb.append("\nauthor = {").append(this.author).append("},");
-        sb.append("\njournal = {").append(this.journal).append("},");
         sb.append("\ntitle = {").append(this.title).append("},");
-        sb.append("\nyear = {").append(this.year).append("},");
-        sb.append("\nvolume = {").append(this.volume).append("},");
-        if (!this.number.isEmpty()) {
-            sb.append("\nnumber = {").append(this.number).append("},");
+        if (!this.year.isEmpty()) {
+            sb.append("\nyear = {").append(this.year).append("},");
         }
-        if (!this.pages.isEmpty()) {
-            sb.append("\npages = {").append(this.pages).append("},");
+        if (!this.address.isEmpty()) {
+            sb.append("\naddress = {").append(this.address).append("},");
+        }
+        if (!this.type.isEmpty()) {
+            sb.append("\ntype = {").append(this.type).append("},");
+        }
+        if (!this.school.isEmpty()) {
+            sb.append("\nschool = {").append(this.school).append("},");
         }
         if (!this.month.isEmpty()) {
             sb.append("\nmonth = {").append(this.month).append("},");
@@ -156,10 +139,13 @@ public class Article implements Entry {
         if (!this.note.isEmpty()) {
             sb.append("\nnote = {").append(this.note).append("},");
         }
-
         sb.append("\n}\n");
-        
         return CharacterEscaper.filter(sb.toString());
+    }
+
+    @Override
+    public boolean isAuthentic() {
+        return isAuthentic;
     }
 
 }
