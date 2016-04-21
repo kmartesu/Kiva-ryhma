@@ -1,0 +1,51 @@
+import kivaryhma.*
+import kivaryhma.entries.*
+import kivaryhma.mvc.*
+import kivaryhma.services.*
+
+description 'Käyttäjänä pystyn lisäämään phdthesis-viitteen'
+
+    scenario "Käyttäjä voi lisätä oikeellisen viitteen", {
+        given 'phdthesis lisäys on auki', {
+            view = new View();
+            model = new Model();
+            controller = new Controller(model, view);
+            form = new Form();
+            form.registerController(controller);
+            view.setForm(form);
+            view.registerController(controller);
+        }
+
+        when 'lisätään lomakkeeseen tiedot', {
+            for(int i=0;i<form.getPhdthesisFields().length; i++) {
+                form.getPhdthesisFields()[i].setText("Test Text");
+            }
+            form.submitPhdthesisForm();
+        }
+        
+        then 'phdthesis-viite luodaan', {
+            Phdthesis phdthesis = controller.getEntries().get(0);
+            phdthesis.shouldNotBe null;
+        }  
+    }
+
+    scenario "Käyttäjä ei voi lisätä phdthesis-viitteen tyhjillä pakollisilla kentillä", {
+        given 'lisäys on auki',{
+            view = new View();
+            model = new Model();
+            controller = new Controller(model,view);
+            form = new Form();
+            form.registerController(controller);
+            view.setForm(form);
+            view.registerController(controller);
+        }
+        when 'Jätetään vaadittavia kenttiä tyhjiksi',{
+            for(int i=3;i<form.getPhdthesisFields().length;i++){
+                form.getPhdthesisFields()[i].setText("Text");
+            }
+            form.submitPhdthesisForm();
+        }
+        then 'viite luodaan',{
+            controller.getEntries().size().shouldBe 0;        
+        }
+    }
