@@ -35,6 +35,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private JTextField[] articleFields = new JTextField[10];
     private JTextField[] bookFields = new JTextField[11];
     private JTextField[] inproceedingsFields = new JTextField[14];
+    private JTextField[] phdthesisFields = new JTextField[9];
+    private JTextField[] masterthesisFields = new JTextField[9];
+    private JTextField[] proceedingsFields = new JTextField[11];
     private JFileChooser fileChooser = new JFileChooser();
     /**
      * Creates new form Frame2
@@ -50,6 +53,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         gatherArticleTextFields();
         gatherBookTextFields();
         gatherInproceedingsTextFields();
+        gatherPhdthesisTextFields();
+        gatherMasterthesisTextFields();
+        gatherProceedingsTextFields();
 
         //Poistetaan placeholderit jotka tuli netbeansin lomakkeenluojan mukana
         String[] temp = new String[0];
@@ -70,6 +76,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         //lähetetään kontrollerimetodille tavarat inproceedings formista
         controller.sendInproceedingsFormParameters(gatherValues(inproceedingsFields));
     }
+    
+    public void submitPhdthesisForm() {
+        controller.sendPhdthesisFormParameters(gatherValues(phdthesisFields));
+    }
+    
+    public void submitMasterthesisForm() {
+        controller.sendMasterthesisFormParameters(gatherValues(masterthesisFields));
+    }
+    
+    public void submitProceedingsForm() {
+        controller.sendProceedingsFormParameters(gatherValues(proceedingsFields));
+    }
+    
     public void saveToFile(){
         
         try {
@@ -199,6 +218,70 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         inproceedingsNote = new javax.swing.JTextField();
         inproceedingsKey = new javax.swing.JTextField();
         submitInproceedings = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        phdthesisAuthor = new javax.swing.JTextField();
+        phdthesisTitle = new javax.swing.JTextField();
+        phdthesisSchool = new javax.swing.JTextField();
+        phdthesisYear = new javax.swing.JTextField();
+        phdthesisType = new javax.swing.JTextField();
+        phdthesisAddress = new javax.swing.JTextField();
+        phdthesisMonth = new javax.swing.JTextField();
+        phdthesisNote = new javax.swing.JTextField();
+        submitPhdthesis = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
+        phdthesisKey = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        masterthesisAuthor = new javax.swing.JTextField();
+        masterthesisTitle = new javax.swing.JTextField();
+        masterthesisSchool = new javax.swing.JTextField();
+        masterthesisYear = new javax.swing.JTextField();
+        masterthesisType = new javax.swing.JTextField();
+        masterthesisAddress = new javax.swing.JTextField();
+        masterthesisMonth = new javax.swing.JTextField();
+        masterthesisNote = new javax.swing.JTextField();
+        jLabel53 = new javax.swing.JLabel();
+        masterthesisKey = new javax.swing.JTextField();
+        submitMasterthesis = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        proceedingsPublisher = new javax.swing.JTextField();
+        proceedingsMonth = new javax.swing.JTextField();
+        proceedingsAddress = new javax.swing.JTextField();
+        proceedingsSeries = new javax.swing.JTextField();
+        proceedingsVolume = new javax.swing.JTextField();
+        proceedingsEditor = new javax.swing.JTextField();
+        proceedingsYear = new javax.swing.JTextField();
+        proceedingsTitle = new javax.swing.JTextField();
+        proceedingsOrganization = new javax.swing.JTextField();
+        proceedingsNote = new javax.swing.JTextField();
+        proceedingsKey = new javax.swing.JTextField();
+        submitProceedings = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
@@ -210,7 +293,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 489, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -476,7 +559,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                     .addComponent(bookKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(bookSubmit)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         inproceedingsPane.addTab("Book", jPanel3);
@@ -636,6 +719,401 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         inproceedingsPane.addTab("Inproceedings", jPanel4);
 
+        jLabel36.setText("Author *");
+
+        jLabel37.setText("Title *");
+
+        jLabel38.setText("School");
+
+        jLabel39.setText("Year *");
+
+        jLabel40.setText("Type");
+
+        jLabel41.setText("Address");
+
+        jLabel42.setText("Month");
+
+        jLabel43.setText("Note");
+
+        phdthesisAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phdthesisAuthorActionPerformed(evt);
+            }
+        });
+
+        phdthesisTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phdthesisTitleActionPerformed(evt);
+            }
+        });
+
+        phdthesisYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phdthesisYearActionPerformed(evt);
+            }
+        });
+
+        phdthesisType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phdthesisTypeActionPerformed(evt);
+            }
+        });
+
+        submitPhdthesis.setText("Submit Phdthesis");
+        submitPhdthesis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitPhdthesisActionPerformed(evt);
+            }
+        });
+
+        jLabel52.setText("Key");
+
+        phdthesisKey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phdthesisKeyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(submitPhdthesis)
+                        .addGap(0, 115, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel37)
+                                        .addComponent(jLabel38)
+                                        .addComponent(jLabel39)
+                                        .addComponent(jLabel40)
+                                        .addComponent(jLabel41)
+                                        .addComponent(jLabel42)
+                                        .addComponent(jLabel43))
+                                    .addGap(20, 20, 20))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                    .addComponent(jLabel36)
+                                    .addGap(18, 18, 18)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel52)
+                                .addGap(51, 51, 51)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(phdthesisAuthor)
+                            .addComponent(phdthesisTitle)
+                            .addComponent(phdthesisSchool)
+                            .addComponent(phdthesisYear)
+                            .addComponent(phdthesisType)
+                            .addComponent(phdthesisAddress)
+                            .addComponent(phdthesisMonth)
+                            .addComponent(phdthesisNote)
+                            .addComponent(phdthesisKey))))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(phdthesisAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(phdthesisTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(phdthesisSchool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phdthesisAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel41)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phdthesisYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel39))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phdthesisType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phdthesisMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel42))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phdthesisNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phdthesisKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(submitPhdthesis)
+                .addContainerGap(177, Short.MAX_VALUE))
+        );
+
+        inproceedingsPane.addTab("Phdthesis", jPanel5);
+
+        jLabel44.setText("Author *");
+
+        jLabel45.setText("Title *");
+
+        jLabel46.setText("School *");
+
+        jLabel47.setText("Year *");
+
+        jLabel48.setText("Type");
+
+        jLabel49.setText("Address");
+
+        jLabel50.setText("Month");
+
+        jLabel51.setText("Note");
+
+        masterthesisAuthor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masterthesisAuthorActionPerformed(evt);
+            }
+        });
+
+        jLabel53.setText("Key");
+
+        submitMasterthesis.setText("Submit masterthesis");
+        submitMasterthesis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitMasterthesisActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addGap(18, 18, 18)
+                        .addComponent(masterthesisAuthor))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel46)
+                            .addComponent(jLabel47)
+                            .addComponent(jLabel48))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(masterthesisSchool)
+                            .addComponent(masterthesisYear)
+                            .addComponent(masterthesisType)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel45)
+                        .addGap(35, 35, 35)
+                        .addComponent(masterthesisTitle))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel49)
+                                    .addComponent(jLabel50)
+                                    .addComponent(jLabel51)
+                                    .addComponent(jLabel53))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(masterthesisAddress)
+                                    .addComponent(masterthesisMonth)
+                                    .addComponent(masterthesisNote)
+                                    .addComponent(masterthesisKey, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
+                            .addComponent(submitMasterthesis))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(masterthesisAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel45)
+                    .addComponent(masterthesisTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(masterthesisSchool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(masterthesisYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48)
+                    .addComponent(masterthesisType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49)
+                    .addComponent(masterthesisAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(masterthesisMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel51)
+                    .addComponent(masterthesisNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel53)
+                    .addComponent(masterthesisKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(submitMasterthesis)
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+
+        inproceedingsPane.addTab("Masterthesis", jPanel6);
+
+        jLabel54.setText("Title *");
+
+        jLabel55.setText("Year *");
+
+        jLabel56.setText("Editor");
+
+        jLabel57.setText("Volume");
+
+        jLabel58.setText("Series");
+
+        jLabel59.setText("Address");
+
+        jLabel60.setText("Month");
+
+        jLabel61.setText("Publisher");
+
+        jLabel62.setText("Organization");
+
+        jLabel63.setText("Note");
+
+        jLabel64.setText("Key");
+
+        proceedingsMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proceedingsMonthActionPerformed(evt);
+            }
+        });
+
+        submitProceedings.setText("Submit proceedings");
+        submitProceedings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitProceedingsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel62)
+                            .addComponent(jLabel61)
+                            .addComponent(jLabel60)
+                            .addComponent(jLabel59)
+                            .addComponent(jLabel58)
+                            .addComponent(jLabel56)
+                            .addComponent(jLabel57)
+                            .addComponent(jLabel55)
+                            .addComponent(jLabel54)
+                            .addComponent(jLabel63)
+                            .addComponent(jLabel64))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(proceedingsTitle)
+                            .addComponent(proceedingsYear)
+                            .addComponent(proceedingsEditor)
+                            .addComponent(proceedingsVolume)
+                            .addComponent(proceedingsSeries)
+                            .addComponent(proceedingsAddress)
+                            .addComponent(proceedingsMonth)
+                            .addComponent(proceedingsPublisher)
+                            .addComponent(proceedingsOrganization)
+                            .addComponent(proceedingsNote)
+                            .addComponent(proceedingsKey)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(submitProceedings)
+                        .addGap(0, 96, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel54)
+                        .addGap(72, 72, 72))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(proceedingsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(proceedingsYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel55))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(proceedingsEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel56))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel57))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsSeries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel59))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel60))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsPublisher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel61))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel62))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsNote, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel63))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(proceedingsKey, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(submitProceedings)
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+
+        inproceedingsPane.addTab("Proceedings", jPanel7);
+
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -661,14 +1139,14 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(inproceedingsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
                             .addComponent(virheViesti))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -677,16 +1155,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(virheViesti)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(virheViesti)
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addComponent(inproceedingsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inproceedingsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -734,6 +1215,52 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         updateList();
         emptyReferenceTextFields(inproceedingsFields);
     }//GEN-LAST:event_submitInproceedingsActionPerformed
+
+    private void phdthesisAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phdthesisAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phdthesisAuthorActionPerformed
+
+    private void phdthesisTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phdthesisTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phdthesisTitleActionPerformed
+
+    private void phdthesisYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phdthesisYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phdthesisYearActionPerformed
+
+    private void phdthesisTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phdthesisTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phdthesisTypeActionPerformed
+
+    private void submitPhdthesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitPhdthesisActionPerformed
+        submitPhdthesisForm();
+        updateList();
+        emptyReferenceTextFields(phdthesisFields);
+    }//GEN-LAST:event_submitPhdthesisActionPerformed
+
+    private void phdthesisKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phdthesisKeyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phdthesisKeyActionPerformed
+
+    private void masterthesisAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masterthesisAuthorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_masterthesisAuthorActionPerformed
+
+    private void submitMasterthesisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitMasterthesisActionPerformed
+        submitMasterthesisForm();
+        updateList();
+        emptyReferenceTextFields(masterthesisFields);
+    }//GEN-LAST:event_submitMasterthesisActionPerformed
+
+    private void proceedingsMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proceedingsMonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proceedingsMonthActionPerformed
+
+    private void submitProceedingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitProceedingsActionPerformed
+        submitProceedingsForm();
+        updateList();
+        emptyReferenceTextFields(proceedingsFields);
+    }//GEN-LAST:event_submitProceedingsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -840,9 +1367,38 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -851,9 +1407,44 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField masterthesisAddress;
+    private javax.swing.JTextField masterthesisAuthor;
+    private javax.swing.JTextField masterthesisKey;
+    private javax.swing.JTextField masterthesisMonth;
+    private javax.swing.JTextField masterthesisNote;
+    private javax.swing.JTextField masterthesisSchool;
+    private javax.swing.JTextField masterthesisTitle;
+    private javax.swing.JTextField masterthesisType;
+    private javax.swing.JTextField masterthesisYear;
+    private javax.swing.JTextField phdthesisAddress;
+    private javax.swing.JTextField phdthesisAuthor;
+    private javax.swing.JTextField phdthesisKey;
+    private javax.swing.JTextField phdthesisMonth;
+    private javax.swing.JTextField phdthesisNote;
+    private javax.swing.JTextField phdthesisSchool;
+    private javax.swing.JTextField phdthesisTitle;
+    private javax.swing.JTextField phdthesisType;
+    private javax.swing.JTextField phdthesisYear;
+    private javax.swing.JTextField proceedingsAddress;
+    private javax.swing.JTextField proceedingsEditor;
+    private javax.swing.JTextField proceedingsKey;
+    private javax.swing.JTextField proceedingsMonth;
+    private javax.swing.JTextField proceedingsNote;
+    private javax.swing.JTextField proceedingsOrganization;
+    private javax.swing.JTextField proceedingsPublisher;
+    private javax.swing.JTextField proceedingsSeries;
+    private javax.swing.JTextField proceedingsTitle;
+    private javax.swing.JTextField proceedingsVolume;
+    private javax.swing.JTextField proceedingsYear;
     private javax.swing.JButton submitArticle;
     private javax.swing.JButton submitInproceedings;
+    private javax.swing.JButton submitMasterthesis;
+    private javax.swing.JButton submitPhdthesis;
+    private javax.swing.JButton submitProceedings;
     private javax.swing.JLabel virheViesti;
     // End of variables declaration//GEN-END:variables
 
@@ -864,6 +1455,44 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         //Päivitetään lista sivussa ja tyhjennetään tekstikentät
         emptyReferenceTextFields(articleFields);
         updateList();
+    }
+    
+    public void gatherProceedingsTextFields() {
+        proceedingsFields[0] = proceedingsTitle;
+        proceedingsFields[1] = proceedingsYear;
+        proceedingsFields[2] = proceedingsEditor;
+        proceedingsFields[3] = proceedingsVolume;
+        proceedingsFields[4] = proceedingsSeries;
+        proceedingsFields[5] = proceedingsAddress;
+        proceedingsFields[6] = proceedingsMonth;
+        proceedingsFields[7] = proceedingsPublisher;
+        proceedingsFields[8] = proceedingsOrganization;
+        proceedingsFields[9] = proceedingsNote;
+        proceedingsFields[10] = proceedingsKey;
+    }
+    
+    public void gatherMasterthesisTextFields() {
+        masterthesisFields[0] = masterthesisAuthor;
+        masterthesisFields[1] = masterthesisTitle;
+        masterthesisFields[2] = masterthesisSchool;
+        masterthesisFields[3] = masterthesisYear;
+        masterthesisFields[4] = masterthesisType;
+        masterthesisFields[5] = masterthesisAddress;
+        masterthesisFields[6] = masterthesisMonth;
+        masterthesisFields[7] = masterthesisNote;
+        masterthesisFields[8] = masterthesisKey;
+    }
+    
+    public void gatherPhdthesisTextFields() {
+        phdthesisFields[0] = phdthesisAuthor;
+        phdthesisFields[1] = phdthesisTitle;
+        phdthesisFields[2] = phdthesisSchool;
+        phdthesisFields[3] = phdthesisYear;
+        phdthesisFields[4] = phdthesisType;
+        phdthesisFields[5] = phdthesisAddress;
+        phdthesisFields[6] = phdthesisMonth;
+        phdthesisFields[7] = phdthesisNote;
+        phdthesisFields[8] = phdthesisKey;
     }
     
     public void gatherBookTextFields() {
@@ -918,6 +1547,18 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     }
     public JTextField[] getInproceedingsFields() {
         return inproceedingsFields;
+    }
+    
+    public JTextField[] getPhdthesisFields() {
+        return phdthesisFields;
+    }
+    
+    public JTextField[] getMasterthesisFields() {
+        return masterthesisFields;
+    }
+    
+    public JTextField[] getProceedingsFields() {
+        return proceedingsFields;
     }
     
     public JTextField[] getArticleFields() {

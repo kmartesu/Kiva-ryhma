@@ -5,6 +5,9 @@ import kivaryhma.entries.Entry;
 import kivaryhma.entries.Book;
 import kivaryhma.entries.Article;
 import java.util.ArrayList;
+import kivaryhma.entries.Masterthesis;
+import kivaryhma.entries.Phdthesis;
+import kivaryhma.entries.Proceedings;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -41,6 +44,53 @@ public class Controller {
         a.setKey(fields[9]);
         
         addReferenceToModel(a);
+    }
+    
+    public void sendPhdthesisFormParameters(String[] fields) {
+        Phdthesis p = new Phdthesis();
+        p.setAuthor(fields[0]);
+        p.setTitle(fields[1]);
+        p.setSchool(fields[2]);
+        p.setYear(fields[3]);
+        p.setType(fields[4]);
+        p.setAddress(fields[5]);
+        p.setMonth(fields[6]);
+        p.setNote(fields[7]);
+        p.setKey(fields[8]);
+        
+        addReferenceToModel(p);
+    }
+    
+    public void sendMasterthesisFormParameters(String[] fields) {
+        Masterthesis m = new Masterthesis();
+        m.setAuthor(fields[0]);
+        m.setTitle(fields[1]);
+        m.setSchool(fields[2]);
+        m.setYear(fields[3]);
+        m.setType(fields[4]);
+        m.setAddress(fields[5]);
+        m.setMonth(fields[6]);
+        m.setNote(fields[7]);
+        m.setKey(fields[8]);
+        
+        addReferenceToModel(m);
+    }
+    
+    public void sendProceedingsFormParameters(String[] fields) {
+        Proceedings p = new Proceedings();
+        p.setTitle(fields[0]);
+        p.setYear(fields[1]);
+        p.setEditor(fields[2]);
+        p.setVolume(fields[3]);
+        p.setSeries(fields[4]);
+        p.setAddress(fields[5]);
+        p.setMonth(fields[6]);
+        p.setPublisher(fields[7]);
+        p.setOrganization(fields[8]);
+        p.setNote(fields[9]);
+        p.setKey(fields[10]);
+        
+        addReferenceToModel(p);
     }
     
     public void sendBookFormParameters (String[] fields) {
