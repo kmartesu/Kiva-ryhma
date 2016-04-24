@@ -3,6 +3,8 @@ package kivaryhma.mvc;
 
 import kivaryhma.entries.Entry;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /*
@@ -42,9 +44,15 @@ public class Model {
         }
     }
     
-    /**
-    public void saveToFile() {
-        //Ei toteutettu vielä
+    
+    public void saveToFile(String fileName) throws FileNotFoundException {
+         
+            PrintWriter writer = new PrintWriter(fileName);
+            for (Entry reference : this.references) {
+                writer.println(reference.toBibtex());
+            }
+            writer.close();
+     
     }
-    **/
+    
 }

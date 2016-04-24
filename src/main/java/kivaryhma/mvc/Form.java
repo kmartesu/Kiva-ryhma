@@ -91,24 +91,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     }
     
     public void saveToFile(){
-        
-        try {
-             ArrayList<Entry> entries = new ArrayList<Entry>(controller.getEntries());
             this.fileChooser.setCurrentDirectory(new File("."));
             int retrieval = this.fileChooser.showSaveDialog(rootPane);
             
             if(retrieval== JFileChooser.APPROVE_OPTION){
-                PrintWriter writer = null;
-                writer = new PrintWriter(fileChooser.getSelectedFile()+".bib");
-                for (Entry entry : entries) {
-                    writer.println(entry.toBibtex());
-                }
-                writer.close();
+                try {
+                    controller.saveToFile(fileChooser.getSelectedFile()+".bib");
+                } catch (FileNotFoundException ex) {
+                    JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
+                }            
             }
              
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
-        }
+         
+        
     } 
     //Kerätään arvot tekstikentistä
     public String[] gatherValues(JTextField[] fields) {

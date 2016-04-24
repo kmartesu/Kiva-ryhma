@@ -1,5 +1,6 @@
 package kivaryhma.mvc;
 
+import java.io.FileNotFoundException;
 import kivaryhma.entries.Inproceedings;
 import kivaryhma.entries.Entry;
 import kivaryhma.entries.Book;
@@ -149,5 +150,8 @@ public class Controller {
 
     public void removeReferences(int array[]) {
         model.removeReferences(array);
+    }
+    public void saveToFile(String fileName) throws FileNotFoundException{
+        model.saveToFile(fileName);
     }
 }
