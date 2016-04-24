@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package kivaryhma.mvc;
+
 import kivaryhma.mvc.View;
 import kivaryhma.mvc.Model;
 import kivaryhma.mvc.Form;
@@ -15,51 +16,57 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 /**
  *
  * @author hyttijan
  */
 public class FormTest {
+
     private Form form;
     private View view;
     private Model model;
     private Controller controller;
+
     public FormTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         view = new View();
         model = new Model();
-        controller = new Controller(model,view);
+        controller = new Controller(model, view);
         form = new Form();
         form.registerController(controller);
         view.setForm(form);
         view.registerController(controller);
-        for(int i=0;i<form.getArticleFields().length;i++){
+        for (int i = 0; i < form.getArticleFields().length; i++) {
             form.getArticleFields()[i].setText("Test");
         }
-       
+
     }
-    
+
     @After
     public void tearDown() {
         File delete = new File("testi.bib");
@@ -71,18 +78,18 @@ public class FormTest {
      */
     @Test
     public void testSubmitForm() {
-     
-      form.submitArticleForm();
-      Article article = (Article) controller.getEntries().get(0);
-      assertEquals(article.getAuthor(),"Test");
-      assertEquals(article.getJournal(),"Test");
-      assertEquals(article.getTitle(),"Test");
-      assertEquals(article.getMonth(),"Test");
-      assertEquals(article.getNote(),"Test");
-      assertEquals(article.getNumber(),"Test");
-      assertEquals(article.getVolume(),"Test");
-      assertEquals(article.getYear(),"Test");
-      assertEquals(article.getKey(),"Test");
+
+        form.submitArticleForm();
+        Article article = (Article) controller.getEntries().get(0);
+        assertEquals(article.getAuthor(), "Test");
+        assertEquals(article.getJournal(), "Test");
+        assertEquals(article.getTitle(), "Test");
+        assertEquals(article.getMonth(), "Test");
+        assertEquals(article.getNote(), "Test");
+        assertEquals(article.getNumber(), "Test");
+        assertEquals(article.getVolume(), "Test");
+        assertEquals(article.getYear(), "Test");
+        assertEquals(article.getKey(), "Test");
     }
 
     /**
@@ -91,8 +98,7 @@ public class FormTest {
     @Test
     public void testUpdateList() {
         form.submitArticleForm();
-          
-  
+
     }
 
     /**
@@ -100,7 +106,7 @@ public class FormTest {
      */
     @Test
     public void testRegisterController() {
-       
+
     }
 
     /**
@@ -108,7 +114,7 @@ public class FormTest {
      */
     @Test
     public void testDisplay() {
-       
+
     }
 
     /**
@@ -116,8 +122,7 @@ public class FormTest {
      */
     @Test
     public void testActionPerformed() {
-     
-      
+
     }
 
     /**
@@ -125,7 +130,7 @@ public class FormTest {
      */
     @Test
     public void testGatherTextFields() {
-     form.gatherArticleTextFields();
+        form.gatherArticleTextFields();
     }
 
     /**
@@ -134,36 +139,41 @@ public class FormTest {
     @Test
     public void testEmptyTextFields() {
         form.emptyReferenceTextFields(form.getArticleFields());
-        for(int i=0;i<form.getArticleFields().length;i++){
-            assertEquals(form.getArticleFields()[i].getText(),"");
+        for (int i = 0; i < form.getArticleFields().length; i++) {
+            assertEquals(form.getArticleFields()[i].getText(), "");
         }
     }
-    public class Apu extends Thread{
+
+    public class Apu extends Thread {
+
         private Robot robot;
-        public Apu(){
+
+        public Apu() {
             try {
                 this.robot = new Robot();
-                
+
             } catch (AWTException ex) {
                 Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         @Override
-        public void run(){ 
-                if(robot!=null){
-                    robot.delay(500);
-                    robot.keyPress(KeyEvent.VK_ENTER);
-                    robot.keyRelease(KeyEvent.VK_ENTER);
-                    robot = null;
-                }
-                
+        public void run() {
+            if (robot != null) {
+                robot.delay(500);
+                robot.keyPress(KeyEvent.VK_ENTER);
+
+                robot.keyRelease(KeyEvent.VK_ENTER);
+                robot = null;
+            }
+
         }
     }
+
     @Test
-    
-    public void testBibtex(){
-       
+
+    public void testBibtex() {
+
         try {
             form.submitArticleForm();
             this.form.getFileChooser().setSelectedFile(new File("testi"));
@@ -175,295 +185,11 @@ public class FormTest {
         } catch (InterruptedException ex) {
             Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        
+
     }
-}    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
 
+    @Test
+    public void testRemove() {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
+}

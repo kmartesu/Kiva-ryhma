@@ -35,6 +35,12 @@ public class Model {
     public ArrayList<Entry> getReferences() {
         return references;
     }
+
+    public void removeReferences(int array[]) {
+        for(int i=array.length-1;i>=0;i--){
+            this.references.remove(array[i]);
+        }
+    }
     
     /**
     public void saveToFile() {

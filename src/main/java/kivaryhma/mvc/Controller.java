@@ -146,4 +146,8 @@ public class Controller {
     public void setVirhe(String virhe) {
         view.getForm().setVirheViesti(virhe);
     }
+
+    public void removeReferences(int array[]) {
+        model.removeReferences(array);
+    }
 }

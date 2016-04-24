@@ -23,6 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.ListModel;
 
 /**
  *
@@ -286,6 +287,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         jList1 = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
         virheViesti = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -830,7 +832,6 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
                     .addComponent(phdthesisSchool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(72, 72, 72)
@@ -859,7 +860,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                     .addComponent(jLabel52))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submitPhdthesis)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         inproceedingsPane.addTab("Phdthesis", jPanel5);
@@ -1075,7 +1076,6 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(proceedingsEditor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel56))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(proceedingsVolume, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel57))
@@ -1109,7 +1109,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                     .addComponent(jLabel64))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submitProceedings)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         inproceedingsPane.addTab("Proceedings", jPanel7);
@@ -1128,6 +1128,13 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             }
         });
 
+        jButton2.setText("Remove");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButton(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1143,11 +1150,13 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2))
                             .addComponent(virheViesti))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -1161,7 +1170,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1262,6 +1273,12 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         emptyReferenceTextFields(proceedingsFields);
     }//GEN-LAST:event_submitProceedingsActionPerformed
 
+    private void removeButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButton
+        int array[]  = jList1.getSelectedIndices();
+        controller.removeReferences(array);
+        updateList();
+    }//GEN-LAST:event_removeButton
+
     /**
      * @param args the command line arguments
      */
@@ -1338,6 +1355,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JTextField inproceedingsVolume;
     private javax.swing.JTextField inproceedingsYear;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1544,6 +1562,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     }
     public JButton getJButton1(){
         return this.jButton1;
+    }
+    public JButton getJButton2(){
+        return this.jButton2;
     }
     public JTextField[] getInproceedingsFields() {
         return inproceedingsFields;
