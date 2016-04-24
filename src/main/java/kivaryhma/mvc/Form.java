@@ -1560,6 +1560,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public JTextField[] getBookFields() {
         return bookFields;
     }
+    public JButton getSubmitArticleButton(){
+        return this.submitArticle;
+    }
     public JButton getJButton1(){
         return this.jButton1;
     }

@@ -190,6 +190,35 @@ public class FormTest {
 
     @Test
     public void testRemove() {
-
+          
+        
+      
+       
+        Thread apu = new Thread(){
+            @Override
+            public void run(){
+                   try {
+                        form.getSubmitArticleButton().doClick();
+                        Thread.sleep(1000);
+                        assertEquals(model.getReferences().size(),1);
+                        form.getReferenceList().setSelectedIndex(0);
+                        form.getJButton2().doClick();
+                        assertEquals(model.getReferences().size(),0);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                  
+            }
+        };
+        apu.start();
+        
+        
+       
+        
+        
+        
+     
+ 
     }
+
 }

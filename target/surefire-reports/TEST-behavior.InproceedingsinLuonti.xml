@@ -1,4 +1,0 @@
-<testsuite tests='2' results='2' failures='0' disabled='0' errors='0' time='0.233' name='behavior.inproceedingsin_luonti'>
-  <testcase classname='behavior.inproceedingsin_luonti' name='Käyttäjä voi lisätä oikeellisen inproceedings-viitteen' time='0.075' />
-  <testcase classname='behavior.inproceedingsin_luonti' name='Käyttäjä ei voi lisätä inproceedings-viitteen tyhjillä pakollisilla kentillä' time='0.062' />
-</testsuite>
