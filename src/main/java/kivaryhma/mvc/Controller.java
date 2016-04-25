@@ -15,21 +15,20 @@ import kivaryhma.entries.Proceedings;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author toffe
  */
 public class Controller {
-    
+
     private Model model;
     private View view;
-    
+
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
     }
-    
+
     //Voisiko tämän toteutta kauniimmin?
     public void sendArticleFormParameters(String[] fields) {
         Article a = new Article();
@@ -43,10 +42,10 @@ public class Controller {
         a.setMonth(fields[7]);
         a.setNote(fields[8]);
         a.setKey(fields[9]);
-        
+
         addReferenceToModel(a);
     }
-    
+
     public void sendPhdthesisFormParameters(String[] fields) {
         Phdthesis p = new Phdthesis();
         p.setAuthor(fields[0]);
@@ -58,10 +57,10 @@ public class Controller {
         p.setMonth(fields[6]);
         p.setNote(fields[7]);
         p.setKey(fields[8]);
-        
+
         addReferenceToModel(p);
     }
-    
+
     public void sendMasterthesisFormParameters(String[] fields) {
         Masterthesis m = new Masterthesis();
         m.setAuthor(fields[0]);
@@ -73,10 +72,10 @@ public class Controller {
         m.setMonth(fields[6]);
         m.setNote(fields[7]);
         m.setKey(fields[8]);
-        
+
         addReferenceToModel(m);
     }
-    
+
     public void sendProceedingsFormParameters(String[] fields) {
         Proceedings p = new Proceedings();
         p.setTitle(fields[0]);
@@ -90,11 +89,11 @@ public class Controller {
         p.setOrganization(fields[8]);
         p.setNote(fields[9]);
         p.setKey(fields[10]);
-        
+
         addReferenceToModel(p);
     }
-    
-    public void sendBookFormParameters (String[] fields) {
+
+    public void sendBookFormParameters(String[] fields) {
         Book b = new Book();
         b.setAuthor(fields[0]);
         b.setTitle(fields[1]);
@@ -107,10 +106,10 @@ public class Controller {
         b.setMonth(fields[8]);
         b.setNote(fields[9]);
         b.setKey(fields[10]);
-        
+
         addReferenceToModel(b);
     }
-    
+
     public void sendInproceedingsFormParameters(String[] fields) {
         Inproceedings i = new Inproceedings();
         i.setAuthor(fields[0]);
@@ -127,23 +126,26 @@ public class Controller {
         i.setPublisher(fields[11]);
         i.setNote(fields[12]);
         i.setKey(fields[13]);
-        
+
         addReferenceToModel(i);
     }
-    
+
     public ArrayList<Entry> getEntries() {
         return model.getReferences();
     }
-    
+
+    public ArrayList<Entry> getSelectedEntries() {
+        return model.getSelectedReferences();
+    }
+
     public void addReferenceToModel(Entry e) {
-        if(!model.addReference(e)) {
+        if (!model.addReference(e)) {
             setVirhe("Pakollisia kenttiä täyttämättä!");
-        }
-        else {
+        } else {
             setVirhe("");
         }
     }
-    
+
     public void setVirhe(String virhe) {
         view.getForm().setVirheViesti(virhe);
     }
@@ -151,10 +153,12 @@ public class Controller {
     public void removeReferences(int array[]) {
         model.removeReferences(array);
     }
+
     public void addSelectedReferences(int array[]) {
-       model.addSelectedReferences(array);
+        model.addSelectedReferences(array);
     }
-    public void saveToFile(String fileName) throws FileNotFoundException{
+
+    public void saveToFile(String fileName) throws FileNotFoundException {
         model.saveToFile(fileName);
     }
 }

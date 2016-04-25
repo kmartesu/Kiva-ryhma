@@ -39,6 +39,10 @@ public class Model {
         }
     }
 
+    public ArrayList<Entry> getSelectedReferences() {
+        return selectedReferences;
+    }
+
     public ArrayList<Entry> getReferences() {
         return references;
     }
