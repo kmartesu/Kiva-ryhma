@@ -5,7 +5,6 @@
  */
 package kivaryhma.entries;
 
-import java.security.spec.ECField;
 import kivaryhma.services.CharacterEscaper;
 
 /**

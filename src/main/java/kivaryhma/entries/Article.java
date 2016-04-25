@@ -13,22 +13,23 @@ import kivaryhma.services.CharacterEscaper;
  */
 public class Article implements Entry {
 
-    private String author="";
-    private String title="";
-    private String journal="";
-    private String year="";
-    private String volume="";
-    private String number="";
-    private String pages="";
-    private String month="";
-    private String note="";
-    private String key="";
+    private String author = "";
+    private String title = "";
+    private String journal = "";
+    private String year = "";
+    private String volume = "";
+    private String number = "";
+    private String pages = "";
+    private String month = "";
+    private String note = "";
+    private String key = "";
     private boolean isAuthentic = true;
 
     public Article() {
         //Toistaiseksi kaikki arvot Stringejä
     }
 
+    @Override
     public String getAuthor() {
         return author;
     }
@@ -41,6 +42,7 @@ public class Article implements Entry {
         }
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -64,7 +66,8 @@ public class Article implements Entry {
             this.journal = journal;
         }
     }
-
+    
+    @Override
     public String getYear() {
         return year;
     }

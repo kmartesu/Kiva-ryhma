@@ -6,7 +6,6 @@
 package kivaryhma.entries;
 
 import kivaryhma.services.CharacterEscaper;
-import kivaryhma.entries.Entry;
 
 /**
  *
@@ -15,22 +14,23 @@ import kivaryhma.entries.Entry;
 
 public class Inproceedings implements Entry{
     private String author = "";
-    private String title="";
-    private String booktitle="";
-    private String year="";
-    private String editor="";
-    private String volume="";
-    private String series="";
-    private String address="";
-    private String edition="";
-    private String month="";
-    private String organization="";
-    private String publisher="";
-    private String note="";
-    private String key="";
-    private String pages="";
+    private String title = "";
+    private String booktitle = "";
+    private String year = "";
+    private String editor = "";
+    private String volume = "";
+    private String series = "";
+    private String address = "";
+    private String edition = "";
+    private String month = "";
+    private String organization = "";
+    private String publisher = "";
+    private String note = "";
+    private String key = "";
+    private String pages = "";
     private boolean isAuthentic = true;
 
+    @Override
     public String toBibtex() {
         StringBuilder sb = new StringBuilder();
         sb.append("@inproceedings{").append(this.key).append(",");
@@ -80,7 +80,8 @@ public class Inproceedings implements Entry{
     public void setPages(String pages) {
         this.pages = pages;
     }
-    //testikommentti
+    
+    @Override
     public String getAuthor() {
         return author;
     }
@@ -93,6 +94,7 @@ public class Inproceedings implements Entry{
         }
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -117,6 +119,7 @@ public class Inproceedings implements Entry{
         }
     }
 
+    @Override
     public String getYear() {
         return year;
     }

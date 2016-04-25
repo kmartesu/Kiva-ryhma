@@ -13,17 +13,17 @@ import kivaryhma.services.CharacterEscaper;
  */
 
 public class Book implements Entry{
-    private String author="";
-    private String title="";
-    private String publisher="";
-    private String year="";
-    private String volume="";
-    private String series="";
-    private String address="";
-    private String edition="";
-    private String month="";
-    private String note="";
-    private String key="";
+    private String author = "";
+    private String title = "";
+    private String publisher = "";
+    private String year = "";
+    private String volume = "";
+    private String series = "";
+    private String address = "";
+    private String edition = "";
+    private String month = "";
+    private String note = "";
+    private String key = "";
     private boolean isAuthentic = true;
 
     @Override
@@ -128,6 +128,7 @@ public class Book implements Entry{
         this.key = key;
     }
 
+    @Override
     public String getAuthor() {
         return author;
     }
@@ -139,7 +140,8 @@ public class Book implements Entry{
             this.author = author;
         }
     }
-
+    
+    @Override
     public String getTitle() {
         return title;
     }
@@ -152,6 +154,7 @@ public class Book implements Entry{
         }
     }
 
+    @Override
     public String getYear() {
         return year;
     }
