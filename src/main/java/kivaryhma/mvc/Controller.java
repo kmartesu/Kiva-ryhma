@@ -151,6 +151,9 @@ public class Controller {
     public void removeReferences(int array[]) {
         model.removeReferences(array);
     }
+    public void addSelectedReferences(int array[]) {
+       model.addSelectedReferences(array);
+    }
     public void saveToFile(String fileName) throws FileNotFoundException{
         model.saveToFile(fileName);
     }

@@ -90,12 +90,16 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         controller.sendProceedingsFormParameters(gatherValues(proceedingsFields));
     }
     
+//        int array[]  = jList1.getSelectedIndices();
+//        controller.removeReferences(array);
+//        updateList();
+    
     public void saveToFile(){
             this.fileChooser.setCurrentDirectory(new File("."));
-            int retrieval = this.fileChooser.showSaveDialog(rootPane);
-            
+            int retrieval = this.fileChooser.showSaveDialog(rootPane);           
             if(retrieval== JFileChooser.APPROVE_OPTION){
                 try {
+                    controller.addSelectedReferences(jList1.getSelectedIndices());
                     controller.saveToFile(fileChooser.getSelectedFile()+".bib");
                 } catch (FileNotFoundException ex) {
                     JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
