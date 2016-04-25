@@ -48,7 +48,7 @@ public class Proceedings implements Entry{
             isAuthentic = false;
         } else {
             this.year = year;
-        };
+        }
     }
 
     public String getEditor() {
