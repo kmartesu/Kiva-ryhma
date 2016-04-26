@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class Model {
 
     private ArrayList<Entry> references = new ArrayList<Entry>();
-    private File referenceFile;
     private ArrayList<Entry> selectedReferences = new ArrayList<Entry>();
 
     public Model() {
@@ -28,14 +27,14 @@ public class Model {
         if (entry.isAuthentic()) {
             references.add(entry);
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public void addSelectedReferences(int array[]) {
-        for (int i = array.length - 1; i >= 0; i--) {
-            this.selectedReferences.add(this.references.get(array[i]));
+        for (int e : array) {
+            this.selectedReferences.add(this.references.get(e));
         }
     }
 
@@ -48,8 +47,8 @@ public class Model {
     }
 
     public void removeReferences(int array[]) {
-        for (int i = array.length - 1; i >= 0; i--) {
-            this.references.remove(array[i]);
+        for (int e : array) {
+            this.references.remove(e);
         }
     }
 
