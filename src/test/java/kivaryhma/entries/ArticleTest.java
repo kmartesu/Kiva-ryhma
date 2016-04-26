@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * @author hyttijan
  */
 public class ArticleTest {
-
+    private String[] fields;
     Article article;
 
     public ArticleTest() {
@@ -34,17 +34,8 @@ public class ArticleTest {
 
     @Before
     public void setUp() {
-        article = new Article();
-        article.setAuthor("author");
-        article.setJournal("journal");
-        article.setNote("note");
-        article.setVolume("volume");
-        article.setPages("pages");
-        article.setKey("key");
-        article.setYear("year");
-        article.setTitle("title");
-        article.setMonth("month");
-        article.setNumber("number");
+        String[] fields = {"author", "title", "journal", "year", "volume", "number", "pages", "month", "note", "key"};
+        article = new Article(fields);
 
     }
 

@@ -25,8 +25,17 @@ public class Article implements Entry {
     private String key="";
     private boolean isAuthentic = true;
 
-    public Article() {
-        //Toistaiseksi kaikki arvot Stringejä
+    public Article(String[] fields) {
+        this.author = fields[0];
+        this.title = fields[1];
+        this.journal = fields[2];
+        this.year = fields[3];
+        this.volume = fields[4];
+        this.number = fields[5];
+        this.pages = fields[6];
+        this.month = fields[7];
+        this.note = fields[8];
+        this.key = fields[9];
     }
 
     public String getAuthor() {

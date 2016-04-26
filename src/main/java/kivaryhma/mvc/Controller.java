@@ -31,18 +31,7 @@ public class Controller {
 
     //Voisiko tämän toteutta kauniimmin?
     public void sendArticleFormParameters(String[] fields) {
-        Article a = new Article();
-        a.setAuthor(fields[0]);
-        a.setTitle(fields[1]);
-        a.setJournal(fields[2]);
-        a.setYear(fields[3]);
-        a.setVolume(fields[4]);
-        a.setNumber(fields[5]);
-        a.setPages(fields[6]);
-        a.setMonth(fields[7]);
-        a.setNote(fields[8]);
-        a.setKey(fields[9]);
-
+        Article a = new Article(fields);
         addReferenceToModel(a);
     }
 
