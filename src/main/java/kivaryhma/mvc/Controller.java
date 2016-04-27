@@ -23,7 +23,8 @@ public class Controller {
 
     private Model model;
     private View view;
-
+    private String searchWord = "";
+    
     public Controller(Model model, View view) {
         this.model = model;
         this.view = view;
@@ -131,7 +132,11 @@ public class Controller {
     }
 
     public ArrayList<Entry> getEntries() {
-        return model.getReferences();
+        ArrayList<Entry> filtered = new ArrayList<Entry>();
+        for(Entry e:model.getReferences()) {
+            if(e.toBibtex().contains(searchWord)) filtered.add(e);
+        }
+        return filtered;
     }
 
     public ArrayList<Entry> getSelectedEntries() {
@@ -160,5 +165,9 @@ public class Controller {
 
     public void saveToFile(String fileName) throws FileNotFoundException {
         model.saveToFile(fileName);
+    }
+    
+    public void setSearchWord(String word) {
+        searchWord = word;
     }
 }
