@@ -190,10 +190,6 @@ public class FormTest {
 
     @Test
     public void testRemove() {
-          
-        
-      
-       
         Thread apu = new Thread(){
             @Override
             public void run(){
@@ -211,14 +207,6 @@ public class FormTest {
             }
         };
         apu.start();
-        
-        
-       
-        
-        
-        
-     
- 
     }
 
 }

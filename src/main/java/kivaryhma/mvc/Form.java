@@ -1634,4 +1634,8 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public JLabel getVirheViesti() {
         return virheViesti;
     }
+    
+    public JTextField getSearchBar() {
+        return searchBar;
+    }
 }
