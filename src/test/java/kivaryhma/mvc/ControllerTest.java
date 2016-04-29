@@ -113,4 +113,20 @@ public class ControllerTest {
        
     }
     
+    @Test 
+    public void testSendinfPhdThesisParametersToController() {
+        String[] params = new String[9];
+        
+        for(int i = 0; i<params.length; i++) {
+            params[i] = "Test";
+        }
+        
+        controller.sendPhdthesisFormParameters(params);
+    
+        Entry e = model.getReferences().get(0);
+        assertEquals(e.getAuthor(), "Test");
+        assertEquals(e.getTitle(), "Test");
+        assertEquals(e.getYear(), "Test");
+    }
+    
 }
