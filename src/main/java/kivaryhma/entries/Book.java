@@ -13,6 +13,7 @@ import kivaryhma.services.CharacterEscaper;
  */
 
 public class Book implements Entry{
+    private String Entrytype = "Book";
     private String author="";
     private String title="";
     private String publisher="";
@@ -167,5 +168,10 @@ public class Book implements Entry{
     @Override
     public boolean isAuthentic() {
         return isAuthentic;
+    }
+
+    @Override
+    public String getEntrytype() {
+        return this.Entrytype;
     }
 }

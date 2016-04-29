@@ -13,6 +13,7 @@ import kivaryhma.services.CharacterEscaper;
  * @author Jonas
  */
 public class Phdthesis implements Entry {
+    private String Entrytype = "Phdthesis";
     private String author = ""; 
     private String title = ""; 
     private String school = "";
@@ -148,4 +149,8 @@ public class Phdthesis implements Entry {
         return isAuthentic;
     }
 
+    @Override
+    public String getEntrytype() {
+        return this.Entrytype;
+    }
 }

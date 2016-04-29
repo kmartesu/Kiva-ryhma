@@ -12,6 +12,7 @@ import kivaryhma.services.CharacterEscaper;
  * @author Jonas
  */
 public class Proceedings implements Entry{
+    private String Entrytype = "Proceedings";
     private String title = ""; 
     private String year = "";
     private String editor = ""; 
@@ -169,4 +170,8 @@ public class Proceedings implements Entry{
         return "";
     }
     
+    @Override
+    public String getEntrytype() {
+        return this.Entrytype;
+    }
 }

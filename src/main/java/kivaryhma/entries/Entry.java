@@ -10,6 +10,7 @@ package kivaryhma.entries;
  * @author Jonas
  */
 public interface Entry {
+    public String getEntrytype();
 
     String toBibtex();
     
