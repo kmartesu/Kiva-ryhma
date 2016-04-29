@@ -129,4 +129,69 @@ public class ControllerTest {
         assertEquals(e.getYear(), "Test");
     }
     
+    @Test 
+    public void testSendMasterThesisParametersToController() {
+        String[] params = new String[9];
+        
+        for(int i = 0; i<params.length; i++) {
+            params[i] = "Test";
+        }
+        
+        controller.sendMasterthesisFormParameters(params);
+    
+        Entry e = model.getReferences().get(0);
+        assertEquals(e.getAuthor(), "Test");
+        assertEquals(e.getTitle(), "Test");
+        assertEquals(e.getYear(), "Test");
+    }
+    
+    @Test 
+    public void testSendProceedingsParametersToController() {
+        String[] params = new String[11];
+        
+        for(int i = 0; i<params.length; i++) {
+            params[i] = "Test";
+        }
+        
+        controller.sendProceedingsFormParameters(params);
+    
+        Entry e = model.getReferences().get(0);
+        assertEquals(e.getTitle(), "Test");
+        assertEquals(e.getYear(), "Test");
+    }
+    
+    @Test 
+    public void testSendBookParametersToController() {
+        String[] params = new String[11];
+        
+        for(int i = 0; i<params.length; i++) {
+            params[i] = "Test";
+        }
+        
+        controller.sendBookFormParameters(params);
+    
+        Entry e = model.getReferences().get(0);
+        assertEquals(e.getAuthor(), "Test");
+        assertEquals(e.getTitle(), "Test");
+        assertEquals(e.getYear(), "Test");
+    }
+
+    @Test 
+    public void testSendInproceedingsParametersToController() {
+        String[] params = new String[14];
+        
+        for(int i = 0; i<params.length; i++) {
+            params[i] = "Test";
+        }
+        
+        controller.sendInproceedingsFormParameters(params);
+    
+        Entry e = model.getReferences().get(0);
+        assertEquals(e.getAuthor(), "Test");
+        assertEquals(e.getTitle(), "Test");
+        assertEquals(e.getYear(), "Test");
+    }
+
+
+
 }

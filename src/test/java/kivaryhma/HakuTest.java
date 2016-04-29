@@ -80,6 +80,7 @@ public class HakuTest {
         controller.setSearchWord("LEL");
         form.updateList();
         
+        
         assertEquals(form.getReferenceList().getModel().getSize(), 1);
     }
     
