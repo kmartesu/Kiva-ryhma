@@ -12,7 +12,7 @@ import kivaryhma.services.CharacterEscaper;
  * @author toffe
  */
 public class Article implements Entry {
-
+    private String Entrytype = "Article";
     private String author="";
     private String title="";
     private String journal="";
@@ -160,6 +160,11 @@ public class Article implements Entry {
         sb.append("\n}\n");
         
         return CharacterEscaper.filter(sb.toString());
+    }
+
+    @Override
+    public String getEntrytype() {
+        return this.Entrytype;
     }
 
 }

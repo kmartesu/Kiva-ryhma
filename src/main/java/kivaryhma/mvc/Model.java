@@ -62,4 +62,8 @@ public class Model {
         this.selectedReferences.clear();
     }
 
+    Entry getEntry(int e) {
+        return this.references.get(e);
+    }
+
 }

@@ -170,4 +170,8 @@ public class Controller {
     public void setSearchWord(String word) {
         searchWord = word;
     }
+
+    public Entry getEntry(int e) {
+       return model.getEntry(e);
+    }
 }

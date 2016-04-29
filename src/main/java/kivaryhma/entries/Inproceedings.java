@@ -14,6 +14,7 @@ import kivaryhma.entries.Entry;
  */
 
 public class Inproceedings implements Entry{
+    private String Entrytype = "Inproceedings";
     private String author = "";
     private String title="";
     private String booktitle="";
@@ -204,5 +205,9 @@ public class Inproceedings implements Entry{
     @Override
     public boolean isAuthentic() {
         return isAuthentic;
+    }
+    @Override
+    public String getEntrytype() {
+        return this.Entrytype;
     }
 }

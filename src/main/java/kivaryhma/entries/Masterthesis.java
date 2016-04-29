@@ -12,6 +12,7 @@ import kivaryhma.services.CharacterEscaper;
  * @author Jonas
  */
 public class Masterthesis implements Entry{
+    private String Entrytype = "Masterthesis";
     private String author = ""; 
     private String title = ""; 
     private String school = "";
@@ -147,5 +148,8 @@ public class Masterthesis implements Entry{
         return isAuthentic;
     }
 
-    
+    @Override
+    public String getEntrytype() {
+        return this.Entrytype;
+    }
 }

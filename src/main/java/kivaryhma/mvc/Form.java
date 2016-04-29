@@ -24,6 +24,12 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
+import kivaryhma.entries.Article;
+import kivaryhma.entries.Book;
+import kivaryhma.entries.Inproceedings;
+import kivaryhma.entries.Masterthesis;
+import kivaryhma.entries.Phdthesis;
+import kivaryhma.entries.Proceedings;
 
 /**
  *
@@ -289,6 +295,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         jButton2 = new javax.swing.JButton();
         searchBar = new javax.swing.JTextField();
         jLabel65 = new javax.swing.JLabel();
+        Edit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1149,6 +1156,13 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         jLabel65.setText("Search");
 
+        Edit.setText("Edit");
+        Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1162,15 +1176,20 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                 .addComponent(inproceedingsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(virheViesti)
+                            .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel65))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
-                    .addComponent(virheViesti)
-                    .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel65))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Edit, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1184,7 +1203,8 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
+                            .addComponent(jButton2)
+                            .addComponent(Edit))
                         .addGap(30, 30, 30)
                         .addComponent(jLabel65)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1304,6 +1324,20 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         updateList();
     }//GEN-LAST:event_searchBarKeyTyped
 
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+        int e = jList1.getSelectedIndex();
+        if(e == -1); // estää edit napin painamisen ilman valittua
+        else {Entry test = controller.getEntry(e); // kutsutaan tyyppiä vastaava palautus metodi
+            if(test.getEntrytype().matches("Article"))putArticleTextFields((Article)test);
+            else if(test.getEntrytype().matches("Book"))putBookTextFields((Book)test);
+            else if(test.getEntrytype().matches("Proceedings"))putProceedingsTextFields((Proceedings)test);
+            else if(test.getEntrytype().matches("Inproceedings"))putInproceedingsTextFields((Inproceedings)test);
+            else if(test.getEntrytype().matches("Masterthesis"))putMasterthesisTextFields((Masterthesis)test);
+            else if(test.getEntrytype().matches("Phdthesis"))putPhdthesisTextFields((Phdthesis)test);
+            updateList();
+        }
+    }//GEN-LAST:event_EditActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1342,6 +1376,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Edit;
     private javax.swing.JTextField articleAuthor;
     private javax.swing.JTextField articleJournal;
     private javax.swing.JTextField articleKey;
@@ -1515,6 +1550,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         proceedingsFields[9] = proceedingsNote;
         proceedingsFields[10] = proceedingsKey;
     }
+    public void putProceedingsTextFields(Proceedings p) {
+        proceedingsFields[0].setText(p.getTitle());
+        proceedingsFields[1].setText(p.getYear());
+        proceedingsFields[2].setText(p.getEditor());
+        proceedingsFields[3].setText(p.getVolume());
+        proceedingsFields[4].setText(p.getSeries());
+        proceedingsFields[5].setText(p.getAddress());
+        proceedingsFields[6].setText(p.getMonth());
+        proceedingsFields[7].setText(p.getPublisher());
+        proceedingsFields[8].setText(p.getOrganization());
+        proceedingsFields[9].setText(p.getNote());
+        proceedingsFields[10].setText(p.getKey());
+    }
     
     public void gatherMasterthesisTextFields() {
         masterthesisFields[0] = masterthesisAuthor;
@@ -1527,6 +1575,17 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         masterthesisFields[7] = masterthesisNote;
         masterthesisFields[8] = masterthesisKey;
     }
+    public void putMasterthesisTextFields(Masterthesis m) {
+        masterthesisFields[0].setText(m.getAuthor());
+        masterthesisFields[1].setText(m.getTitle());
+        masterthesisFields[2].setText(m.getSchool());
+        masterthesisFields[3].setText(m.getYear());
+        masterthesisFields[4].setText(m.getType());
+        masterthesisFields[5].setText(m.getAddress());
+        masterthesisFields[6].setText(m.getMonth());
+        masterthesisFields[7].setText(m.getNote());
+        masterthesisFields[8].setText(m.getKey());
+    }
     
     public void gatherPhdthesisTextFields() {
         phdthesisFields[0] = phdthesisAuthor;
@@ -1538,6 +1597,18 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         phdthesisFields[6] = phdthesisMonth;
         phdthesisFields[7] = phdthesisNote;
         phdthesisFields[8] = phdthesisKey;
+    }
+    
+    public void putPhdthesisTextFields(Phdthesis p) {
+        phdthesisFields[0].setText(p.getAuthor());
+        phdthesisFields[1].setText(p.getTitle());
+        phdthesisFields[2].setText(p.getSchool());
+        phdthesisFields[3].setText(p.getYear());
+        phdthesisFields[4].setText(p.getType());
+        phdthesisFields[5].setText(p.getAddress());
+        phdthesisFields[6].setText(p.getMonth());
+        phdthesisFields[7].setText(p.getNote());
+        phdthesisFields[8].setText(p.getKey());
     }
     
     public void gatherBookTextFields() {
@@ -1553,6 +1624,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         bookFields[9] = bookNote;
         bookFields[10] = bookKey;
     }
+    public void putBookTextFields(Book b) {
+        bookFields[0].setText(b.getAuthor());
+        bookFields[1].setText(b.getTitle());
+        bookFields[2].setText(b.getPublisher());
+        bookFields[3].setText(b.getYear());
+        bookFields[4].setText(b.getVolume());
+        bookFields[5].setText(b.getSeries());;
+        bookFields[6].setText(b.getAddress());
+        bookFields[7].setText(b.getEdition());
+        bookFields[8].setText(b.getMonth());
+        bookFields[9].setText(b.getNote());
+        bookFields[10].setText(b.getKey());
+    }
 
     public void gatherArticleTextFields() {
         articleFields[0] = articleAuthor;
@@ -1565,6 +1649,19 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         articleFields[7] = articleMonth;
         articleFields[8] = articleNote;
         articleFields[9] = articleKey;
+    }
+    
+    public void putArticleTextFields(Article a) {
+        articleFields[0].setText(a.getAuthor());
+        articleFields[1].setText(a.getJournal());
+        articleFields[2].setText(a.getTitle());
+        articleFields[3].setText(a.getYear());
+        articleFields[4].setText(a.getVolume());
+        articleFields[5].setText(a.getNumber());
+        articleFields[6].setText(a.getPages());
+        articleFields[7].setText(a.getMonth());
+        articleFields[8].setText(a.getNote());
+        articleFields[9].setText(a.getKey());
     }
     
     public void gatherInproceedingsTextFields() {
@@ -1582,6 +1679,23 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         inproceedingsFields[11] = inproceedingsPublisher;
         inproceedingsFields[12] = inproceedingsNote;
         inproceedingsFields[13] = inproceedingsKey;
+    }
+    
+    public void putInproceedingsTextFields(Inproceedings i) {
+        inproceedingsFields[0].setText(i.getAuthor());
+        inproceedingsFields[1].setText(i.getTitle());
+        inproceedingsFields[2].setText(i.getBooktitle());
+        inproceedingsFields[3].setText(i.getYear());
+        inproceedingsFields[4].setText(i.getEditor());
+        inproceedingsFields[5].setText(i.getVolume());
+        inproceedingsFields[6].setText(i.getSeries());
+        inproceedingsFields[7].setText(i.getPages());
+        inproceedingsFields[8].setText(i.getAddress());
+        inproceedingsFields[9].setText(i.getMonth());
+        inproceedingsFields[10].setText(i.getOrganization());
+        inproceedingsFields[11].setText(i.getPublisher());
+        inproceedingsFields[12].setText(i.getNote());
+        inproceedingsFields[13].setText(i.getKey());
     }
 
     public JTextField[] getBookFields() {
