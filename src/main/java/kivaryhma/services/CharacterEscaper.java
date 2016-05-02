@@ -24,6 +24,12 @@ public class CharacterEscaper {
         text = text.replace("Æ", "{\\AE}");
         text = text.replace("ø", "{\\o}");
         text = text.replace("Ø", "{\\O}");
+
+        // special characters {  "  and $  also need to be vetted from BibteX with extra slashes.
+        text = text.replace("{", "\\{");
+        text = text.replace("\"", "\\\"");
+        text = text.replace("$", "\\$");
+         
         //Testikommentti
         return text;
         
