@@ -56,6 +56,9 @@ public class Model {
     }
 
     public void saveToFile(String fileName) throws FileNotFoundException {
+        if(!fileName.endsWith(".bib")){
+            fileName=fileName+".bib";
+        }
         PrintWriter writer = new PrintWriter(fileName);
         for (Entry reference : this.selectedReferences) {
             writer.println(reference.toBibtex());

@@ -165,6 +165,7 @@ public class Controller {
     }
 
     public void saveToFile(String fileName) throws FileNotFoundException {
+   
         model.saveToFile(fileName);
     }
     public void readBiBTeXFile(String fileName) throws FileNotFoundException, ParseException {

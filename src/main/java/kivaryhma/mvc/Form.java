@@ -106,7 +106,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             if(retrieval== JFileChooser.APPROVE_OPTION){
                 try {
                     controller.addSelectedReferences(jList1.getSelectedIndices());
-                    controller.saveToFile(fileChooser.getSelectedFile()+".bib");
+                    controller.saveToFile(fileChooser.getSelectedFile().getName());
                 } catch (FileNotFoundException ex) {
                     JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
                 }            
