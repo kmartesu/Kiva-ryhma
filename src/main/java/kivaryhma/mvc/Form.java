@@ -734,7 +734,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         jLabel37.setText("Title *");
 
-        jLabel38.setText("School");
+        jLabel38.setText("School *");
 
         jLabel39.setText("Year *");
 
