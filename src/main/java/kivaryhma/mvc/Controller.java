@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import kivaryhma.entries.Masterthesis;
 import kivaryhma.entries.Phdthesis;
 import kivaryhma.entries.Proceedings;
+import org.jbibtex.ParseException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -165,6 +166,9 @@ public class Controller {
 
     public void saveToFile(String fileName) throws FileNotFoundException {
         model.saveToFile(fileName);
+    }
+    public void readBiBTeXFile(String fileName) throws FileNotFoundException, ParseException {
+        model.readBiBTeXFile(fileName);
     }
     
     public void setSearchWord(String word) {

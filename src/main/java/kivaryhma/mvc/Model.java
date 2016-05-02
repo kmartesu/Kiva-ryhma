@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import kivaryhma.services.BibTeXParser;
+import org.jbibtex.ParseException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -65,5 +67,14 @@ public class Model {
     Entry getEntry(int e) {
         return this.references.get(e);
     }
+
+    public void readBiBTeXFile(String fileName) throws ParseException, FileNotFoundException {
+        BibTeXParser lukija = new BibTeXParser();
+        ArrayList<Entry> entries = lukija.readBibtex(fileName);
+        for (Entry entry : entries){
+            this.addReference(entry);
+        }
+    }
+    
 
 }

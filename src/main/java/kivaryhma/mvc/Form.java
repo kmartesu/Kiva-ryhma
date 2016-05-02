@@ -296,6 +296,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         searchBar = new javax.swing.JTextField();
         jLabel65 = new javax.swing.JLabel();
         Edit = new javax.swing.JButton();
+        readBiBTeX = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -807,12 +808,9 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                                         .addComponent(jLabel42)
                                         .addComponent(jLabel43))
                                     .addGap(20, 20, 20))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel36)
-                                    .addGap(18, 18, 18)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel52)
-                                .addGap(51, 51, 51)))
+                                .addComponent(jLabel36, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel52))
+                        .addGap(5, 5, 5)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(phdthesisAuthor)
                             .addComponent(phdthesisTitle)
@@ -1163,6 +1161,13 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             }
         });
 
+        readBiBTeX.setText("Read BiBTex");
+        readBiBTeX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                readBiBTeXActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1181,7 +1186,10 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(virheViesti)
                             .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel65))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(readBiBTeX)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel65)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -1205,8 +1213,13 @@ public class Form extends javax.swing.JFrame implements ActionListener {
                             .addComponent(jButton1)
                             .addComponent(jButton2)
                             .addComponent(Edit))
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel65))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(readBiBTeX)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE))
@@ -1337,6 +1350,20 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             updateList();
         }
     }//GEN-LAST:event_EditActionPerformed
+
+    private void readBiBTeXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readBiBTeXActionPerformed
+        int valinta = this.fileChooser.showOpenDialog(this);
+        if (valinta == JFileChooser.APPROVE_OPTION){
+            try {
+                controller.readBiBTeXFile(fileChooser.getSelectedFile().getAbsolutePath());
+            } catch (Exception ex) {
+                
+                Logger.getLogger(Form.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        this.updateList();
+        
+    }//GEN-LAST:event_readBiBTeXActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1519,6 +1546,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JTextField proceedingsTitle;
     private javax.swing.JTextField proceedingsVolume;
     private javax.swing.JTextField proceedingsYear;
+    private javax.swing.JButton readBiBTeX;
     private javax.swing.JTextField searchBar;
     private javax.swing.JButton submitArticle;
     private javax.swing.JButton submitInproceedings;
