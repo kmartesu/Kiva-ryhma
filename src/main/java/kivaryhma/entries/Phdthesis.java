@@ -113,7 +113,11 @@ public class Phdthesis implements Entry {
     }
 
     public void setKey(String key) {
-        this.key = key;
+        if (key.trim().length() == 0) {
+            isAuthentic = false;
+        } else {
+            this.key = key;
+        }
     }
 
     @Override
