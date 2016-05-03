@@ -25,6 +25,7 @@ scenario "Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä articl
         form.getArticleFields()[2].setText("journal");
         form.getArticleFields()[3].setText("volume");
         form.getArticleFields()[4].setText("year");
+        form.getArticleFields()[9].setText("key");
         for (int i = 5; i < 9; i++) {
             form.getArticleFields()[i].setText("articletest");
         }
@@ -38,7 +39,7 @@ scenario "Käyttäjä voi generoida toimivan bibtex-tiedoston lisätystä articl
         }
     }
     then 'kaikki löytyy bibtex-tiedostosta', {
-        bibtex.contains("@article{,").shouldBe true
+        bibtex.contains("@article{key,").shouldBe true
         bibtex.contains("author = {author},").shouldBe true
         bibtex.contains("journal = {journal},").shouldBe true
         bibtex.contains("volume = {year},").shouldBe true
@@ -131,6 +132,7 @@ scenario "Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article
         for (int i = 0; i <= 4; i++) {
             form.getArticleFields()[i].setText("test");
         }
+        form.getArticleFields()[9].setText("test1");
         form.submitArticleForm();
         for (int i = 0; i <= 4; i++) {
             form.getArticleFields()[i].setText("test2");
@@ -147,7 +149,7 @@ scenario "Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article
         }
     }
     then 'kummatkin artikkeliviitteet löytyvät bibtex-tiedostosta', {
-        bibtex.contains("@article{,").shouldBe true
+        bibtex.contains("@article{test1,").shouldBe true
         bibtex.contains("author = {test}").shouldBe true
         bibtex.contains("title = {test}").shouldBe true
         bibtex.contains("year = {test}").shouldBe true
@@ -172,12 +174,14 @@ scenario "Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article
             for (int i = 0; i <= 4; i++) {
                 form.getArticleFields()[i].setText("articletest");
             }
+            form.getArticleFields()[9].setText("articletest");
             form.submitArticleForm();
             for (int i = 0; i <= 3; i++) {
                 form.getBookFields()[i].setText("booktest");
             }
+            form.getBookFields()[10].setText("booktest");
             form.submitBookForm();
-            for (int i = 0; i <= 3; i++) {
+            for (int i = 0; i < form.getInproceedingsFields().length; i++) {
                 form.getInproceedingsFields()[i].setText("inproceedingstest");
             }
             form.submitInproceedingsForm()
@@ -190,11 +194,11 @@ scenario "Käyttäjä voi generoida toimivan bibtex-tiedoston useammasta article
             }
         }
         then 'book- ja article-viitteet löytyvät bibtex-tiedostosta', {
-            bibtex.contains("@article{,").shouldBe true
+            bibtex.contains("@article{articletest,").shouldBe true
             bibtex.contains("title = {articletest},").shouldBe true
-            bibtex.contains("@book{,").shouldBe true
+            bibtex.contains("@book{booktest,").shouldBe true
             bibtex.contains("title = {booktest},").shouldBe true
-            bibtex.contains("@inproceedings{,").shouldBe true
+            bibtex.contains("@inproceedings{inproceedingstest,").shouldBe true
             bibtex.contains("title = {inproceedingstest},").shouldBe true
         }
     }

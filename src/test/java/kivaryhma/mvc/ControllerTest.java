@@ -120,7 +120,6 @@ public class ControllerTest {
         for(int i = 0; i<params.length; i++) {
             params[i] = "Test";
         }
-        
         controller.sendPhdthesisFormParameters(params);
     
         Entry e = model.getReferences().get(0);

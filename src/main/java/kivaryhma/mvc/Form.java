@@ -347,7 +347,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         jLabel9.setText("Note");
 
-        jLabel10.setText("Key");
+        jLabel10.setText("Key *");
 
         submitArticle.setText("Submit Article");
         submitArticle.addActionListener(new java.awt.event.ActionListener() {
@@ -462,7 +462,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         jLabel20.setText("Note");
 
-        jLabel21.setText("Key");
+        jLabel21.setText("Key *");
 
         bookTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -618,7 +618,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         jLabel34.setText("Note");
 
-        jLabel35.setText("Key");
+        jLabel35.setText("Key *");
 
         inproceedingsYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -794,7 +794,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             }
         });
 
-        jLabel52.setText("Key");
+        jLabel52.setText("Key *");
 
         phdthesisKey.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -910,7 +910,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             }
         });
 
-        jLabel53.setText("Key");
+        jLabel53.setText("Key *");
 
         submitMasterthesis.setText("Submit masterthesis");
         submitMasterthesis.addActionListener(new java.awt.event.ActionListener() {
@@ -1028,7 +1028,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         jLabel63.setText("Note");
 
-        jLabel64.setText("Key");
+        jLabel64.setText("Key *");
 
         proceedingsMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -126,7 +126,11 @@ public class Book implements Entry{
     }
 
     public void setKey(String key) {
-        this.key = key;
+        if (key.trim().length() == 0) {
+            isAuthentic = false;
+        } else {
+            this.key = key;
+        }
     }
 
     public String getAuthor() {

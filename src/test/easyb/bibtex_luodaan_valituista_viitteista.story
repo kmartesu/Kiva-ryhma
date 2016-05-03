@@ -21,6 +21,7 @@ scenario "Luodaan viite, valitaan se ja luodaan bibtex", {
         form.getArticleFields()[2].setText("journal");
         form.getArticleFields()[3].setText("volume");
         form.getArticleFields()[4].setText("year");
+        form.getArticleFields()[9].setText("key");
         for (int i = 5; i < 9; i++) {
             form.getArticleFields()[i].setText("articletest");
         }
@@ -37,7 +38,7 @@ scenario "Luodaan viite, valitaan se ja luodaan bibtex", {
     }
 
     then 'bibtexistä löytyy jutut',{
-        bibtex.contains("@article{,").shouldBe true
+        bibtex.contains("@article{key,").shouldBe true
         bibtex.contains("author = {author},").shouldBe true
         bibtex.contains("journal = {journal},").shouldBe true
         bibtex.contains("volume = {year},").shouldBe true
@@ -57,15 +58,15 @@ scenario "Luodaan useampi viite, valitaan pari ja luodaan bibtex", {
         view.registerController(controller);
     }
     and 'useampi viite lisätään', {
-        for (int i = 0; i <= 4; i++) {
+        for (int i = 0; i <= 9; i++) {
             form.getArticleFields()[i].setText("articletest");
         }
         form.submitArticleForm();
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 10; i++) {
             form.getBookFields()[i].setText("booktest");
         }
         form.submitBookForm();
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 13; i++) {
             form.getInproceedingsFields()[i].setText("inproceedingstest");
         }
         form.submitInproceedingsForm()
