@@ -5,25 +5,14 @@
  */
 package kivaryhma.mvc;
 
-import kivaryhma.mvc.View;
-import kivaryhma.mvc.Model;
-import kivaryhma.mvc.Form;
-import kivaryhma.mvc.Controller;
 import kivaryhma.entries.Article;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
