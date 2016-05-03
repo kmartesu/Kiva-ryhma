@@ -91,6 +91,11 @@ public class FormTest {
 
     }
 
+    @Test
+    public void testcheckIfBeingEdited() {
+        form.checkIfBeingEdited();
+    }
+
     /**
      * Test of registerController method, of class Form.
      */
@@ -201,44 +206,43 @@ public class FormTest {
 
     @Test
     public void testOpenFile() throws FileNotFoundException {
-           form.submitArticleForm();
-           this.model.getSelectedReferences().add(this.model.getReferences().get(0));
-           this.model.saveToFile("testi.bib");
-           
-           this.model = new Model();
-           this.view = new View();
-           this.model = new Model();
-           this.controller = new Controller(model, view);
-           this.form = new Form();
-           this.form.registerController(controller);
-           this.view.setForm(form);
-           this.view.registerController(controller);
-        
-           this.form.getFileChooser().setSelectedFile(new File("testi.bib"));
-        Thread apu2 = new Thread(){
+        form.submitArticleForm();
+        this.model.getSelectedReferences().add(this.model.getReferences().get(0));
+        this.model.saveToFile("testi.bib");
+
+        this.model = new Model();
+        this.view = new View();
+        this.model = new Model();
+        this.controller = new Controller(model, view);
+        this.form = new Form();
+        this.form.registerController(controller);
+        this.view.setForm(form);
+        this.view.registerController(controller);
+
+        this.form.getFileChooser().setSelectedFile(new File("testi.bib"));
+        Thread apu2 = new Thread() {
             @Override
-            public void run(){
+            public void run() {
                 Robot robot;
-               
-                    
+
                 try {
                     try {
-                       
+
                         Thread.sleep(1000);
                         robot = new Robot();
-                       
+
                         robot.keyPress(KeyEvent.VK_ENTER);
                         robot.keyRelease(KeyEvent.VK_ENTER);
                         Thread.sleep(1000);
-                        
+
                     } catch (AWTException ex) {
-                    Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } catch (InterruptedException ex) {
                     Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                   
-        }
+
+            }
         };
         apu2.start();
         this.form.getReadBiBTex().doClick();
