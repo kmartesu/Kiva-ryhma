@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import kivaryhma.Main;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -41,6 +42,7 @@ public class MainTest {
     //
     @Test
     public void hello() {
+        Main.main(new String[] {"arg1", "arg2"});
         assertEquals(1,1);
     }
 }
