@@ -14,6 +14,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -190,23 +191,79 @@ public class FormTest {
 
     @Test
     public void testRemove() {
-        Thread apu = new Thread(){
+        Thread apu = new Thread() {
             @Override
-            public void run(){
-                   try {
-                        form.getSubmitArticleButton().doClick();
-                        Thread.sleep(1000);
-                        assertEquals(model.getReferences().size(),1);
-                        form.getReferenceList().setSelectedIndex(0);
-                        form.getJButton2().doClick();
-                        assertEquals(model.getReferences().size(),0);
+            public void run() {
+                try {
+                    form.getSubmitArticleButton().doClick();
+                    Thread.sleep(1000);
+                    assertEquals(model.getReferences().size(), 1);
+                    form.getReferenceList().setSelectedIndex(0);
+                    form.getJButton2().doClick();
+                    assertEquals(model.getReferences().size(), 0);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                  
+
             }
         };
         apu.start();
+    }
+
+    @Test
+    public void testOpenFile() throws FileNotFoundException {
+           form.submitArticleForm();
+           this.model.getSelectedReferences().add(this.model.getReferences().get(0));
+           this.model.saveToFile("testi.bib");
+           
+           this.model = new Model();
+           this.view = new View();
+           this.model = new Model();
+           this.controller = new Controller(model, view);
+           this.form = new Form();
+           this.form.registerController(controller);
+           this.view.setForm(form);
+           this.view.registerController(controller);
+        
+           this.form.getFileChooser().setSelectedFile(new File("testi.bib"));
+        Thread apu2 = new Thread(){
+            @Override
+            public void run(){
+                Robot robot;
+               
+                    
+                try {
+                    try {
+                       
+                        Thread.sleep(1000);
+                        robot = new Robot();
+                       
+                        robot.keyPress(KeyEvent.VK_ENTER);
+                        robot.keyRelease(KeyEvent.VK_ENTER);
+                        Thread.sleep(1000);
+                        
+                    } catch (AWTException ex) {
+                    Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FormTest.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                   
+        }
+        };
+        apu2.start();
+        this.form.getReadBiBTex().doClick();
+        assertTrue(this.form.getFileChooser().getSelectedFile().exists());
+        Article article = (Article) controller.getEntries().get(0);
+        assertEquals(article.getAuthor(), "Test");
+        assertEquals(article.getJournal(), "Test");
+        assertEquals(article.getTitle(), "Test");
+        assertEquals(article.getMonth(), "Test");
+        assertEquals(article.getNote(), "Test");
+        assertEquals(article.getNumber(), "Test");
+        assertEquals(article.getVolume(), "Test");
+        assertEquals(article.getYear(), "Test");
+        assertEquals(article.getKey(), "Test");
     }
 
 }

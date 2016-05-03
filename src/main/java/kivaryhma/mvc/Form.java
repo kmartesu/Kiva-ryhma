@@ -1350,14 +1350,18 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             updateList();
         }
     }//GEN-LAST:event_EditActionPerformed
-
+    public JButton getReadBiBTex(){
+        return this.readBiBTeX;
+    }
+            
     private void readBiBTeXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readBiBTeXActionPerformed
+        this.fileChooser.setCurrentDirectory(new File("."));
         int valinta = this.fileChooser.showOpenDialog(this);
+       
         if (valinta == JFileChooser.APPROVE_OPTION){
             try {
                 controller.readBiBTeXFile(fileChooser.getSelectedFile().getAbsolutePath());
             } catch (Exception ex) {
-                
                 Logger.getLogger(Form.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
