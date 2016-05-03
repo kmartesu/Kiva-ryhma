@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import sun.org.mozilla.javascript.tools.idswitch.Main;
 
 /**
  *
@@ -41,6 +42,6 @@ public class MainTest {
     //
     @Test
     public void hello() {
-        assertEquals(1,1);
+        Main.main(new String[] {"arg1", "arg2"});
     }
 }
