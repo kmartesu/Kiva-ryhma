@@ -46,6 +46,8 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     private JTextField[] masterthesisFields = new JTextField[9];
     private JTextField[] proceedingsFields = new JTextField[11];
     private JFileChooser fileChooser = new JFileChooser();
+    private int beingEdited = -1;
+
     /**
      * Creates new form Frame2
      */
@@ -71,54 +73,64 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
     public void submitArticleForm() {
         //Lähetetään lista controllerille
+        checkIfBeingEdited();
         controller.sendArticleFormParameters(gatherValues(articleFields));
     }
-    
+
     public void submitBookForm() {
         //Lähetetään kontrollerimetodille tavarat bookformista
+        checkIfBeingEdited();
         controller.sendBookFormParameters(gatherValues(bookFields));
     }
-    
+
     public void submitInproceedingsForm() {
         //lähetetään kontrollerimetodille tavarat inproceedings formista
+        checkIfBeingEdited();
         controller.sendInproceedingsFormParameters(gatherValues(inproceedingsFields));
     }
-    
+
     public void submitPhdthesisForm() {
+        checkIfBeingEdited();
         controller.sendPhdthesisFormParameters(gatherValues(phdthesisFields));
     }
-    
+
     public void submitMasterthesisForm() {
+        checkIfBeingEdited();
         controller.sendMasterthesisFormParameters(gatherValues(masterthesisFields));
     }
-    
+
     public void submitProceedingsForm() {
+        checkIfBeingEdited();
         controller.sendProceedingsFormParameters(gatherValues(proceedingsFields));
     }
-    
-//        int array[]  = jList1.getSelectedIndices();
-//        controller.removeReferences(array);
-//        updateList();
-    
-    public void saveToFile(){
-            this.fileChooser.setCurrentDirectory(new File("."));
-            int retrieval = this.fileChooser.showSaveDialog(rootPane);           
-            if(retrieval== JFileChooser.APPROVE_OPTION){
-                try {
-                    controller.addSelectedReferences(jList1.getSelectedIndices());
-                    controller.saveToFile(fileChooser.getSelectedFile().getName());
-                } catch (FileNotFoundException ex) {
-                    JOptionPane.showMessageDialog(rootPane,"Jokin meni pieleen","Error",JOptionPane.ERROR_MESSAGE);
-                }            
+
+    public void checkIfBeingEdited() {
+        //poistetaan muokkauksen yhteydessä se vanha versio
+        if (beingEdited != -1) {
+            int[] toBeRemoved = {beingEdited};
+            controller.removeReferences(toBeRemoved);
+            beingEdited = -1;
+        }
+    }
+
+    public void saveToFile() {
+        this.fileChooser.setCurrentDirectory(new File("."));
+        int retrieval = this.fileChooser.showSaveDialog(rootPane);
+        if (retrieval == JFileChooser.APPROVE_OPTION) {
+            try {
+                controller.addSelectedReferences(jList1.getSelectedIndices());
+                controller.saveToFile(fileChooser.getSelectedFile().getName());
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(rootPane, "Jokin meni pieleen", "Error", JOptionPane.ERROR_MESSAGE);
             }
-             
-         
-        
-    } 
+        }
+
+    }
+
     //Kerätään arvot tekstikentistä
     public String[] gatherValues(JTextField[] fields) {
         String[] values = new String[fields.length];
-        for(int i = 0; i < fields.length; i++) {
+        for (int i = 0; i < fields.length; i++) {
             values[i] = fields[i].getText();
         }
         return values;
@@ -338,6 +350,11 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         jLabel10.setText("Key");
 
         submitArticle.setText("Submit Article");
+        submitArticle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitArticleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1232,14 +1249,14 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public JFileChooser getFileChooser(){
+    public JFileChooser getFileChooser() {
         return this.fileChooser;
     }
     private void bibtexButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexButton
 
         this.saveToFile();
     }//GEN-LAST:event_bibtexButton
-    
+
     private void articleTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articleTitleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_articleTitleActionPerformed
@@ -1323,7 +1340,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     }//GEN-LAST:event_submitProceedingsActionPerformed
 
     private void removeButton(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButton
-        int array[]  = jList1.getSelectedIndices();
+        int array[] = jList1.getSelectedIndices();
         controller.removeReferences(array);
         updateList();
     }//GEN-LAST:event_removeButton
@@ -1339,26 +1356,35 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         int e = jList1.getSelectedIndex();
-        if(e == -1); // estää edit napin painamisen ilman valittua
-        else {Entry test = controller.getEntry(e); // kutsutaan tyyppiä vastaava palautus metodi
-            if(test.getEntrytype().matches("Article"))putArticleTextFields((Article)test);
-            else if(test.getEntrytype().matches("Book"))putBookTextFields((Book)test);
-            else if(test.getEntrytype().matches("Proceedings"))putProceedingsTextFields((Proceedings)test);
-            else if(test.getEntrytype().matches("Inproceedings"))putInproceedingsTextFields((Inproceedings)test);
-            else if(test.getEntrytype().matches("Masterthesis"))putMasterthesisTextFields((Masterthesis)test);
-            else if(test.getEntrytype().matches("Phdthesis"))putPhdthesisTextFields((Phdthesis)test);
+        if (e == -1); // estää edit napin painamisen ilman valittua
+        else {
+            Entry test = controller.getEntry(e); // kutsutaan tyyppiä vastaava palautus metodi
+            beingEdited = e;
+            if (test.getEntrytype().matches("Article")) {
+                putArticleTextFields((Article) test);
+            } else if (test.getEntrytype().matches("Book")) {
+                putBookTextFields((Book) test);
+            } else if (test.getEntrytype().matches("Proceedings")) {
+                putProceedingsTextFields((Proceedings) test);
+            } else if (test.getEntrytype().matches("Inproceedings")) {
+                putInproceedingsTextFields((Inproceedings) test);
+            } else if (test.getEntrytype().matches("Masterthesis")) {
+                putMasterthesisTextFields((Masterthesis) test);
+            } else if (test.getEntrytype().matches("Phdthesis")) {
+                putPhdthesisTextFields((Phdthesis) test);
+            }
             updateList();
         }
     }//GEN-LAST:event_EditActionPerformed
-    public JButton getReadBiBTex(){
+    public JButton getReadBiBTex() {
         return this.readBiBTeX;
     }
-            
+
     private void readBiBTeXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readBiBTeXActionPerformed
         this.fileChooser.setCurrentDirectory(new File("."));
         int valinta = this.fileChooser.showOpenDialog(this);
-       
-        if (valinta == JFileChooser.APPROVE_OPTION){
+
+        if (valinta == JFileChooser.APPROVE_OPTION) {
             try {
                 controller.readBiBTeXFile(fileChooser.getSelectedFile().getAbsolutePath());
             } catch (Exception ex) {
@@ -1366,8 +1392,12 @@ public class Form extends javax.swing.JFrame implements ActionListener {
             }
         }
         this.updateList();
-        
+
     }//GEN-LAST:event_readBiBTeXActionPerformed
+
+    private void submitArticleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitArticleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submitArticleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1568,7 +1598,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         emptyReferenceTextFields(articleFields);
         updateList();
     }
-    
+
     public void gatherProceedingsTextFields() {
         proceedingsFields[0] = proceedingsTitle;
         proceedingsFields[1] = proceedingsYear;
@@ -1582,6 +1612,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         proceedingsFields[9] = proceedingsNote;
         proceedingsFields[10] = proceedingsKey;
     }
+
     public void putProceedingsTextFields(Proceedings p) {
         proceedingsFields[0].setText(p.getTitle());
         proceedingsFields[1].setText(p.getYear());
@@ -1595,7 +1626,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         proceedingsFields[9].setText(p.getNote());
         proceedingsFields[10].setText(p.getKey());
     }
-    
+
     public void gatherMasterthesisTextFields() {
         masterthesisFields[0] = masterthesisAuthor;
         masterthesisFields[1] = masterthesisTitle;
@@ -1607,6 +1638,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         masterthesisFields[7] = masterthesisNote;
         masterthesisFields[8] = masterthesisKey;
     }
+
     public void putMasterthesisTextFields(Masterthesis m) {
         masterthesisFields[0].setText(m.getAuthor());
         masterthesisFields[1].setText(m.getTitle());
@@ -1618,7 +1650,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         masterthesisFields[7].setText(m.getNote());
         masterthesisFields[8].setText(m.getKey());
     }
-    
+
     public void gatherPhdthesisTextFields() {
         phdthesisFields[0] = phdthesisAuthor;
         phdthesisFields[1] = phdthesisTitle;
@@ -1630,7 +1662,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         phdthesisFields[7] = phdthesisNote;
         phdthesisFields[8] = phdthesisKey;
     }
-    
+
     public void putPhdthesisTextFields(Phdthesis p) {
         phdthesisFields[0].setText(p.getAuthor());
         phdthesisFields[1].setText(p.getTitle());
@@ -1642,7 +1674,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         phdthesisFields[7].setText(p.getNote());
         phdthesisFields[8].setText(p.getKey());
     }
-    
+
     public void gatherBookTextFields() {
         bookFields[0] = bookAuthor;
         bookFields[1] = bookTitle;
@@ -1656,6 +1688,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         bookFields[9] = bookNote;
         bookFields[10] = bookKey;
     }
+
     public void putBookTextFields(Book b) {
         bookFields[0].setText(b.getAuthor());
         bookFields[1].setText(b.getTitle());
@@ -1682,7 +1715,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         articleFields[8] = articleNote;
         articleFields[9] = articleKey;
     }
-    
+
     public void putArticleTextFields(Article a) {
         articleFields[0].setText(a.getAuthor());
         articleFields[1].setText(a.getJournal());
@@ -1695,7 +1728,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         articleFields[8].setText(a.getNote());
         articleFields[9].setText(a.getKey());
     }
-    
+
     public void gatherInproceedingsTextFields() {
         inproceedingsFields[0] = inproceedingsAuthor;
         inproceedingsFields[1] = inproceedingsTitle;
@@ -1712,7 +1745,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         inproceedingsFields[12] = inproceedingsNote;
         inproceedingsFields[13] = inproceedingsKey;
     }
-    
+
     public void putInproceedingsTextFields(Inproceedings i) {
         inproceedingsFields[0].setText(i.getAuthor());
         inproceedingsFields[1].setText(i.getTitle());
@@ -1733,31 +1766,39 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public JTextField[] getBookFields() {
         return bookFields;
     }
-    public JButton getSubmitArticleButton(){
+
+    public JButton getSubmitArticleButton() {
         return this.submitArticle;
     }
-    public JButton getJButton1(){
+
+    public JButton getJButton1() {
         return this.jButton1;
     }
-    public JButton getJButton2(){
+
+    public JButton getJButton2() {
         return this.jButton2;
     }
+
+    public JButton getJButtonEdit() {
+        return this.Edit;
+    }
+
     public JTextField[] getInproceedingsFields() {
         return inproceedingsFields;
     }
-    
+
     public JTextField[] getPhdthesisFields() {
         return phdthesisFields;
     }
-    
+
     public JTextField[] getMasterthesisFields() {
         return masterthesisFields;
     }
-    
+
     public JTextField[] getProceedingsFields() {
         return proceedingsFields;
     }
-    
+
     public JTextField[] getArticleFields() {
         return articleFields;
     }
@@ -1768,11 +1809,11 @@ public class Form extends javax.swing.JFrame implements ActionListener {
 
     //metodi tyhjentää jonkun lomakkeen tekstikentät
     public void emptyReferenceTextFields(JTextField[] fields) {
-        for(int i = 0; i < fields.length; i++) {
+        for (int i = 0; i < fields.length; i++) {
             fields[i].setText("");
         }
-    } 
-    
+    }
+
     public void setVirheViesti(String viesti) {
         virheViesti.setText(viesti);
     }
@@ -1780,7 +1821,7 @@ public class Form extends javax.swing.JFrame implements ActionListener {
     public JLabel getVirheViesti() {
         return virheViesti;
     }
-    
+
     public JTextField getSearchBar() {
         return searchBar;
     }
