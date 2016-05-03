@@ -55,10 +55,8 @@ public class BibTeXParserTest {
         
         try {
             entries = parser.readBibtex("src/test/resources/testibib.bib");
-        } catch (ParseException ex) {
-            Logger.getLogger(BibTeXParserTest.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(BibTeXParserTest.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println("Tiedostoa ei saatu auki");
         }
         assertEquals(6, entries.size());
     }
