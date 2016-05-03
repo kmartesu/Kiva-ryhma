@@ -5,7 +5,6 @@
  */
 package kivaryhma.mvc;
 
-import kivaryhma.mvc.Model;
 import kivaryhma.entries.Article;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -14,6 +14,10 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import kivaryhma.entries.Book;
+import kivaryhma.entries.Inproceedings;
+import kivaryhma.entries.Masterthesis;
+import kivaryhma.entries.Phdthesis;
+import kivaryhma.entries.Proceedings;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -183,7 +187,102 @@ public class FormTest {
         }
 
     }
+    
+    @Test
+    public void testPutProceedingsTextFields() {
+        Proceedings prs = new Proceedings();
+        
+        prs.setTitle("test");
+        prs.setYear("test");
+        prs.setKey("test");
+        
+        form.putProceedingsTextFields(prs);
+        
+        assertEquals(form.getProceedingsFields()[0].getText(), "test");
+        assertEquals(form.getProceedingsFields()[1].getText(), "test");
+    }
+    
+    @Test
+    public void testPutMasterthesisTextFields() {
+        Masterthesis mst = new Masterthesis();
+        
+        mst.setAuthor("test");
+        mst.setTitle("test");
+        mst.setSchool("test");
+        mst.setYear("test");
+        mst.setKey("test");
+        
+        form.putMasterthesisTextFields(mst);
+        
+        assertEquals(form.getMasterthesisFields()[0].getText(), "test");
+        assertEquals(form.getMasterthesisFields()[1].getText(), "test");
+        assertEquals(form.getMasterthesisFields()[2].getText(), "test");
+        assertEquals(form.getMasterthesisFields()[3].getText(), "test");
+    }
+    
+    @Test
+    public void testPutPhdThesisTextFields() {
+        Phdthesis phd = new Phdthesis();
+        
+        phd.setAuthor("test");
+        phd.setTitle("test");
+        phd.setSchool("test");
+        phd.setYear("test");
+        phd.setKey("test");
+        
+        form.putPhdthesisTextFields(phd);
+        
+        assertEquals(form.getPhdthesisFields()[0].getText(), "test");
+        assertEquals(form.getPhdthesisFields()[1].getText(), "test");
+        assertEquals(form.getPhdthesisFields()[2].getText(), "test");
+        assertEquals(form.getPhdthesisFields()[3].getText(), "test");
+    }
+    
+    @Test
+    public void testPutBOokTextFields() {
+        Book bo = new Book();
+        
+        bo.setAuthor("test");
+        bo.setTitle("test");
+        bo.setPublisher("test");
+        bo.setYear("test");
+        bo.setKey("test");
+        
+        form.putBookTextFields(bo);
+        
+        assertEquals(form.getBookFields()[0].getText(), "test");
+        assertEquals(form.getBookFields()[1].getText(), "test");
+        assertEquals(form.getBookFields()[2].getText(), "test");
+        assertEquals(form.getBookFields()[3].getText(), "test");
+    }
 
+    @Test
+    public void testPutInproceedings() {
+        Inproceedings in = new Inproceedings();
+        in.setAddress("address");
+        in.setAuthor("author");
+        in.setBooktitle("booktitle");
+        in.setEditor("editor");
+        in.setKey("key");
+        in.setMonth("month");
+        in.setNote("note");
+        in.setOrganization("organization");
+        in.setPages("pages");
+        in.setPublisher("publisher");
+        in.setSeries("series");
+        in.setTitle("title");
+        in.setVolume("volume");
+        in.setYear("year");
+    
+        form.putInproceedingsTextFields(in);
+        
+        assertEquals(form.getInproceedingsFields()[0].getText(), in.getAuthor());
+        assertEquals(form.getInproceedingsFields()[1].getText(), in.getTitle());
+        assertEquals(form.getInproceedingsFields()[2].getText(), in.getBooktitle());
+        assertEquals(form.getInproceedingsFields()[3].getText(), in.getYear());
+
+    }
+    
     @Test
     public void testRemove() {
         Thread apu = new Thread() {

@@ -5,7 +5,6 @@
  */
 package kivaryhma.entries;
 
-import kivaryhma.entries.Inproceedings;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
