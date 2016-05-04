@@ -75,33 +75,39 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         //Lähetetään lista controllerille
         checkIfBeingEdited();
         controller.sendArticleFormParameters(gatherValues(articleFields));
+        updateList();
     }
 
     public void submitBookForm() {
         //Lähetetään kontrollerimetodille tavarat bookformista
         checkIfBeingEdited();
         controller.sendBookFormParameters(gatherValues(bookFields));
+        updateList();
     }
 
     public void submitInproceedingsForm() {
         //lähetetään kontrollerimetodille tavarat inproceedings formista
         checkIfBeingEdited();
         controller.sendInproceedingsFormParameters(gatherValues(inproceedingsFields));
+        updateList();
     }
 
     public void submitPhdthesisForm() {
         checkIfBeingEdited();
         controller.sendPhdthesisFormParameters(gatherValues(phdthesisFields));
+        updateList();
     }
 
     public void submitMasterthesisForm() {
         checkIfBeingEdited();
         controller.sendMasterthesisFormParameters(gatherValues(masterthesisFields));
+        updateList();
     }
 
     public void submitProceedingsForm() {
         checkIfBeingEdited();
         controller.sendProceedingsFormParameters(gatherValues(proceedingsFields));
+        updateList();
     }
 
     public void checkIfBeingEdited() {
@@ -1358,7 +1364,8 @@ public class Form extends javax.swing.JFrame implements ActionListener {
         int e = jList1.getSelectedIndex();
         if (e == -1); // estää edit napin painamisen ilman valittua
         else {
-            Entry test = controller.getEntry(e); // kutsutaan tyyppiä vastaava palautus metodi
+            //Entry test = controller.getEntry(e); // kutsutaan tyyppiä vastaava palautus metodi
+            Entry test = controller.getEntries().get(e);
             beingEdited = e;
             if (test.getEntrytype().matches("Article")) {
                 putArticleTextFields((Article) test);
