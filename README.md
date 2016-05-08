@@ -1,6 +1,7 @@
 # Kiva-ryhmä
 [![Build Status](https://travis-ci.org/kmartesu/Kiva-ryhma.svg?branch=master)](https://travis-ci.org/kmartesu/Kiva-ryhma)
 [![Coverage Status](https://coveralls.io/repos/github/kmartesu/Kiva-ryhma/badge.svg?branch=master)](https://coveralls.io/github/kmartesu/Kiva-ryhma?branch=master)
+[Loppuraportti](https://docs.google.com/document/d/1sQJNr5qafltad2bKYAi212mPNbp7TvrWiodkzIdVAWw/edit?usp=sharing)
 
 MERGETTY https://github.com/kmartesu/Kiva-ryhma/pull/4
 
