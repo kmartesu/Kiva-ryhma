@@ -14,11 +14,11 @@ public interface Entry {
 
     String toBibtex();
     
-    public boolean isAuthentic();
+    boolean isAuthentic();
 
-    public String getAuthor();
+    String getAuthor();
 
-    public String getYear();
+    String getYear();
 
-    public String getTitle();
+    String getTitle();
 }
