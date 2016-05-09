@@ -1,2 +1,6 @@
 /kiva-ryhma/target/
 /target/
+
+# Refaktoroinnista (viikko 6 t. 6)
+.idea
+*.iml
